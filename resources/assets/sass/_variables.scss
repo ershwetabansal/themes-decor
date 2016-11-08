@@ -1,26 +1,23 @@
 
-// Body
-$body-bg: #f5f8fa;
 
 // Borders
-$border-color: darken($body-bg, 10%);
+$border-color: darken($branding-color, 10%);
 $list-group-border: $border-color;
 $navbar-default-border: $border-color;
 $panel-default-border: $border-color;
 $panel-inner-border: $border-color;
 
 // Brands
-$brand-primary: #3097D1;
+$brand-primary: $branding-color;
 $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
 $brand-danger: #bf5329;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
-$text-color: #636b6f;
+$text-color: $text-color;
 
 // Navbar
 $navbar-default-bg: #fff;

@@ -9,3 +9,7 @@ Homestead.yaml
 storage
 app/DiskBrowser
 app/Exceptions/Filesystem
+public/images
+public/build
+public/css
+public/js

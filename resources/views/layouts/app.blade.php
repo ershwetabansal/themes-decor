@@ -10,11 +10,8 @@
 
     <title>Theme & Decor</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+    <link rel="stylesheet" href="{{ elixir('css/red.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -27,7 +24,7 @@
 <body>
     @include('app.header')
 
-    @include('app.logo')
+    @include('app.head_section')
 
     @include('app.navigation')
 
