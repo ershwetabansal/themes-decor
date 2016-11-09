@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin;
 
 use App\Theme;
 use App\Offer;
@@ -10,9 +8,10 @@ use App\Product;
 use App\Service;
 use App\Configuration;
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-
-class AdminController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -39,4 +38,5 @@ class AdminController extends Controller
     	
         return view('admin', compact('themes', 'products', 'offers', 'configurations', 'services'));
     }
+
 }

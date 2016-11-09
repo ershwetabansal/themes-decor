@@ -15,10 +15,11 @@ class CreateOffers extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('valid_until');
-            $table->string('url');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->string('valid_until')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

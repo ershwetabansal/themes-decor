@@ -16,9 +16,9 @@
 			<th>
 				Price
 			</th>
-			<tbody>
+			<th>
 				Discount
-			</tbody>
+			</th>
 			<th>
 				Images
 			</th>
