@@ -11,7 +11,7 @@
     <title>Theme & Decor</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ elixir('css/red.css') }}">
+    <link rel="stylesheet" href="{{ elixir('css/'. \App\Configuration::theme() . '.css') }}">
 
     <!-- Scripts -->
     <script>

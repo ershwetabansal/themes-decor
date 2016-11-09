@@ -1,0 +1,54 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Name
+			</th>
+			<th>
+				Description
+			</th>
+			<th>
+				Quantity
+			</th>
+			<th>
+				Unit
+			</th>
+			<th>
+				Price
+			</th>
+			<tbody>
+				Discount
+			</tbody>
+			<th>
+				Images
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach($products as $product)
+		<tr>
+			<td>
+				{{ $product->name }}
+			</td>
+			<td>
+				{{ $product->description }}
+			</td>
+			<td>
+				{{ $product->quantity }}
+			</td>
+			<td>
+				{{ $product->unit }}
+			</td>
+			<td>
+				{{ $product->price }}
+			</td>
+			<td>
+				{{ $product->discount }}
+			</td>
+			<td>
+				<button>Browse</button>
+			</td>			
+		</tr>
+		@endforeach
+	</tbody>
+</table>

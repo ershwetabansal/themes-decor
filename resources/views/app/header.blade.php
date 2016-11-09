@@ -31,6 +31,11 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                @if(\Auth::user()->is_admin)
+                                <a href="{{ url('/admin') }}">
+                                    Admin
+                                </a>
+                                @endif
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

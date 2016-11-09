@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/admin', 'AdminController@index');
+
 Route::group(['prefix' => '/api/v1/disk/'], function () {
 
     Route::group(['middleware' => ['auth', 'auth.basic']], function () {
