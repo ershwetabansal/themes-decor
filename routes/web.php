@@ -32,6 +32,11 @@ Route::group(['prefix' => '/admin/'], function () {
     Route::post('/offer/store', 'Admin\OfferController@store');
     Route::post('/service/store', 'Admin\ServiceController@store');
 
+    Route::post('/theme/update', 'Admin\ThemeController@update');
+    Route::post('/product/update', 'Admin\ProductController@update');
+    Route::post('/offer/update', 'Admin\OfferController@update');
+    Route::post('/service/update', 'Admin\ServiceController@update');
+
 });
 
 Route::group(['prefix' => '/api/v1/disk/'], function () {

@@ -65,6 +65,41 @@
                 @include('admin.customize.create')
                 <a data-target="#themes" data-toggle="tab" class="pull-right">Go back</a>
             </div>
+
+            @foreach($services as $service)
+            <div class="tab-pane fade" id="services_update_{{ $service->id }}">
+                @include('admin.services.update')
+                <a data-target="#themes" data-toggle="tab" class="pull-right">Go back</a>
+            </div>
+            @endforeach
+
+            @foreach($themes as $theme)
+            <div class="tab-pane fade" id="themes_update_{{ $theme->id }}">
+                @include('admin.themes.update')
+                <a data-target="#themes" data-toggle="tab" class="pull-right">Go back</a>
+            </div>
+            @endforeach
+
+            @foreach($products as $product)
+            <div class="tab-pane fade" id="products_update_{{ $product->id }}">
+                @include('admin.products.update')
+                <a data-target="#products" data-toggle="tab" class="pull-right">Go back</a>
+            </div>
+            @endforeach
+
+            @foreach($offers as $offer)
+            <div class="tab-pane fade" id="offers_update_{{ $offer->id }}">
+                @include('admin.offers.update')
+                <a data-target="#offers" data-toggle="tab" class="pull-right">Go back</a>
+            </div>
+            @endforeach
+
+            @foreach($configurations as $configuration)
+            <div class="tab-pane fade" id="customize_update_{{ $configuration->id }}">
+                @include('admin.customize.update')
+                <a data-target="#themes" data-toggle="tab" class="pull-right">Go back</a>
+            </div>
+            @endforeach
         </div>  
     </div>
 </div>

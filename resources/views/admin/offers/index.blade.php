@@ -28,12 +28,15 @@
 				{{ $offer->description }}
 			</td>
 			<td>
-				{{ $offer->valid_until->format('j M Y') }}
+				{{ ($offer->valid_until) ? $offer->valid_until->format('j M Y') : '-' }}
 			</td>
 			<td>
 				{{ $offer->url }}
 			</td>
 			<td>
+				<a data-target="#offers_update_{{ $offer->id }}" data-toggle="tab">
+					Edit
+				</a>
 				<button>Browse</button>
 			</td>			
 		</tr>

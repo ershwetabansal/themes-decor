@@ -22,6 +22,9 @@
 				{{ $theme->description }}
 			</td>
 			<td>
+				<a data-target="#themes_update_{{ $theme->id }}" data-toggle="tab">
+					Edit
+				</a>
 				<button>Browse</button>
 			</td>			
 		</tr>

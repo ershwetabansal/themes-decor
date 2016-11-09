@@ -26,4 +26,13 @@ class ServiceController extends Controller
 
     	return redirect('admin');
     }
+
+    public function update(Request $request)
+    {
+        $input =  $request->except('id', '_token');
+
+        $service =  Service::where('id', $request->input('id'))->update($input;);
+
+        return redirect('admin');
+    }
 }

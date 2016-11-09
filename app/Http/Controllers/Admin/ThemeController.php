@@ -27,4 +27,12 @@ class ThemeController extends Controller
     	return redirect('admin');
     }
 
+    public function update(Request $request)
+    {
+        $input =  $request->except('id', '_token');
+
+        $theme =  Theme::where('id', $request->input('id'))->update($input);
+
+        return redirect('admin');
+    }
 }

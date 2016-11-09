@@ -22,6 +22,9 @@
 				{{ $service->description }}
 			</td>
 			<td>
+				<a data-target="#services_update_{{ $service->id }}" data-toggle="tab">
+					Edit
+				</a>
 				<button>Browse</button>
 			</td>			
 		</tr>

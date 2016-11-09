@@ -46,6 +46,9 @@
 				{{ $product->discount }}
 			</td>
 			<td>
+				<a data-target="#products_update_{{ $product->id }}" data-toggle="tab">
+					Edit
+				</a>
 				<button>Browse</button>
 			</td>			
 		</tr>
