@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Theme;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\DiskBrowser\DiskBrowser;
 use App\Http\Controllers\Controller;
 
 class ThemeController extends Controller
 {
-    
-   	/**
+    /**
+     * @var DiskBrowser
+     */
+    private $browser;
+
+    /**
+     * @var string
+     */
+    private $path;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -18,21 +27,56 @@ class ThemeController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
+        $this->browser = new DiskBrowser('image_disk');
+        $this->path = '/themes/';
+
     }
 
+    /**
+     * Store a theme to database and create a directory in the images folder.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
-    	$theme =  Theme::create($request->all());
+    	Theme::create($request->all());
 
-    	return redirect('admin');
+        $this->browser->createDirectory($request->input('slug'), $this->path );
+
+        return redirect('admin');
     }
 
+    /**
+     * Update the theme in database and rename the directory in images folder.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Request $request)
     {
-        $input =  $request->except('id', '_token');
+        $theme = Theme::where('id', $request->input('id'));
+        $oldName = $theme->firstOrFail()->slug;
+        $theme->update($request->except('id', '_token'));
 
-        $theme =  Theme::where('id', $request->input('id'))->update($input);
+        if ($oldName != $request->input('slug')) {
+            $this->browser->renameDirectory($this->path, $oldName, $request->input('slug'));
+        }
+        return redirect('admin');
+    }
 
+    /**
+     * Delete the theme from database and delete the corresponding directory from database.
+     *
+     * @param Request $request
+     */
+    public function destroy(Request $request)
+    {
+        $theme = Theme::where('id', $request->input('id'));
+        $name = $theme->firstOrFail()->slug;
+        $theme->delete();
+
+        $this->browser->deleteDirectory($name, $this->path);
         return redirect('admin');
     }
 }

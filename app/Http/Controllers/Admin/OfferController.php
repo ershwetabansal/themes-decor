@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Offer;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\DiskBrowser\DiskBrowser;
 use App\Http\Controllers\Controller;
 
 class OfferController extends Controller
 {
-        
-   	/**
+    /**
+     * @var DiskBrowser
+     */
+    private $browser;
+
+    /**
+     * @var string
+     */
+    private $path;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -18,21 +27,57 @@ class OfferController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
+        $this->browser = new DiskBrowser('image_disk');
+        $this->path = '/offers/';
+
     }
 
+    /**
+     * Store a offer to database and create a directory in the images folder.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
-    	$offer =  Offer::create($request->all());
+        Offer::create($request->all());
 
-    	return redirect('admin');
+        $this->browser->createDirectory($request->input('slug'), $this->path );
+
+        return redirect('admin');
     }
 
+    /**
+     * Update the offer in database and rename the directory in images folder.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Request $request)
     {
-        $input =  $request->except('id', '_token');
+        $offer = Offer::where('id', $request->input('id'));
+        $oldName = $offer->firstOrFail()->slug;
+        $offer->update($request->except('id', '_token'));
 
-        $product =  Product::where('id', $request->input('id'))->update($input);
+        if ($oldName != $request->input('slug')) {
+            $this->browser->renameDirectory($this->path, $oldName, $request->input('slug'));
+        }
 
+        return redirect('admin');
+    }
+
+    /**
+     * Delete the offer from database and delete the corresponding directory from database.
+     *
+     * @param Request $request
+     */
+    public function destroy(Request $request)
+    {
+        $offer = Offer::where('id', $request->input('id'));
+        $name = $offer->firstOrFail()->slug;
+        $offer->delete();
+
+        $this->browser->deleteDirectory($name, $this->path);
         return redirect('admin');
     }
 }

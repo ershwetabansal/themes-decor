@@ -6,14 +6,14 @@
     <label for="input1" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input1" placeholder="Red Balloon"
-      		name="name" />
+      		name="name"/>
     </div>
   </div>
   <div class="form-group">
     <label for="input2" class="col-sm-2 control-label">Slug</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input2" placeholder="red-balloon"
-      		name="slug" />
+      		name="slug" data-type="theme_slug" />
     </div>
   </div>
   <div class="form-group">

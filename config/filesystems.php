@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 return [
 
@@ -52,11 +52,6 @@ return [
             'driver' => 'local',
             'root'   => storage_path('app/public/images'),
             'path_prefix'   => '/images',
-        ],
-
-        'doc_disk' => [
-            'driver' => 'local',
-            'root'   => storage_path('app/public/documents'),
         ],
 
         'public' => [

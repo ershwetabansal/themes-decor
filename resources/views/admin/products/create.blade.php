@@ -6,14 +6,15 @@
     <label for="input1" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input1" placeholder="Surprise gift bag"
-      		name="name" value="{{ old('name') }}" required/>
+      		name="name" value="{{ old('name') }}" data-action="update_slug" data-update="product_slug"
+             required/>
     </div>
   </div>
   <div class="form-group">
     <label for="input2" class="col-sm-2 control-label">Slug</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input2" placeholder="surprise-gift-bag"
-      		name="slug" value="{{ old('slug') }}" required/>
+      		name="slug" value="{{ old('slug') }}" data-type="product_slug" required/>
     </div>
   </div>
   <div class="form-group">

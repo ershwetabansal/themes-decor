@@ -37,6 +37,11 @@ Route::group(['prefix' => '/admin/'], function () {
     Route::post('/offer/update', 'Admin\OfferController@update');
     Route::post('/service/update', 'Admin\ServiceController@update');
 
+    Route::post('/theme/destroy', 'Admin\ThemeController@destroy');
+    Route::post('/product/destroy', 'Admin\ProductController@destroy');
+    Route::post('/offer/destroy', 'Admin\OfferController@destroy');
+    Route::post('/service/destroy', 'Admin\ServiceController@destroy');
+
 });
 
 Route::group(['prefix' => '/api/v1/disk/'], function () {
@@ -44,12 +49,12 @@ Route::group(['prefix' => '/api/v1/disk/'], function () {
     Route::group(['middleware' => ['auth', 'auth.basic']], function () {
 
         // Routes for disk browser
-        Route::post('directories', 'Disk\DirectoryController@index');
-        Route::post('directory/store', 'Disk\DirectoryController@store');
-        Route::post('directory/destroy', 'Disk\DirectoryController@destroy');
-        Route::post('files', 'Disk\FileController@index');
-        Route::post('file/store', 'Disk\FileController@store');
-        Route::post('search', 'Disk\DiskController@search');
+        Route::post('directories', 'DiskBrowser\DirectoryController@index');
+        Route::post('directory/store', 'DiskBrowser\DirectoryController@store');
+        Route::post('directory/destroy', 'DiskBrowser\DirectoryController@destroy');
+        Route::post('files', 'DiskBrowser\FileController@index');
+        Route::post('file/store', 'DiskBrowser\FileController@store');
+        Route::post('search', 'DiskBrowser\DiskController@search');
 
    });
 });

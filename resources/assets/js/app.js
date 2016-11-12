@@ -1,20 +1,47 @@
+/**
+ * Returns slugified text with the given separator and uses '-' if no separator is present
+ * @param text
+ * @param separator
+ * @returns {string}
+ */
+function slugify(text, separator)
+{
+    separator = separator || "-";
+
+    return text.toLowerCase()
+        .trim()                                                                 // Trim string to remove
+        // leading and trailing spaces
+        .replace(new RegExp(" & ","g"), ' and ')                                // Replace ampersand with 'and'
+        .replace(new RegExp("\\s+","g"), separator)                             // Replace spaces with separator
+        .replace(new RegExp("[^\\a-zA-Z0-9\\"+separator+"]", "g"), "")          // Remove all non-alpha numeric characters
+        // other than separator
+        .replace(new RegExp("\\"+separator+"\\"+separator+"+","g"), separator)  // Replace multiple separator with single
+        .replace(new RegExp("^[\\"+separator+"]", "g"), "")                     // Remove all leading separators
+        .replace(new RegExp("(\\"+separator+"$)", "g"), "")                     // Remove all trailing separators
+        ;
+
+}
 
 /**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
+ * Update slug when name is added.
  */
-
-require('./bootstrap');
+(function() {
+    $('[data-action="update_slug"]').change(function () {
+        var updateField = $(this).data('update');
+        $('[data-type="'+updateField+'"]').val(slugify($(this).val()));
+    });
+})();
 
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
+ * Script to handle hash for tab views.
  */
+(function () {
+    var hash = window.location.hash;
+    hash && $('ul#sidebar.nav a[href="' + hash + '"]').tab('show');
 
-Vue.component('example', require('./components/Example.vue'));
+    $('#sidebar.nav-pills a').click(function (e) {
+        window.location.hash = this.hash;
+        $('html,body').scrollTop(1);
+    });
 
-const app = new Vue({
-    el: '#app'
-});
+})();

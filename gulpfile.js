@@ -1,7 +1,5 @@
 const elixir = require('laravel-elixir');
 
-require('laravel-elixir-vue-2');
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -13,12 +11,18 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir((mix) => {
+elixir(function (mix) {
+    mix.copy('node_modules/disk-browser/dist/js', 'public/js/diskbrowser/js');
+    mix.copy('node_modules/disk-browser/dist/partials', 'public/js/diskbrowser/partials');
+    mix.copy('node_modules/disk-browser/dist/css', 'public/css/diskbrowser');
+
     mix.sass('theme/blue.scss')
     .sass('theme/red.scss')
-    .sass('theme/santa.scss')
-    .webpack('app.js');
+    .sass('theme/santa.scss');
+    mix.scripts(['app.js', 'modal.js'], 'public/js/app.js');
+    mix.scripts(['disk_browser.js'], 'public/js/disk_browser.js');
 
-   	mix.version(['css/red.css', 'css/blue.css','css/santa.css']);
-  	mix.version('js/app.js');
+   	mix.version(['public/css/red.css', 'public/css/blue.css','public/css/santa.css']);
+  	mix.version('public/js/app.js');
+  	mix.version('public/js/disk_browser.js');
 });
