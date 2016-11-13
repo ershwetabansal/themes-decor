@@ -17,12 +17,16 @@ class Configuration extends Model
 
     public static function theme()
     {
-    	$theme = Configuration::where('key', 'Theme');
+        return Configuration::getValue('Theme', 'blue');
+    }
 
-    	if ($theme->first()) {
-    		return $theme->first()->value;
-    	}
+    public static function getValue($key, $defaultValue = null)
+    {
+        $config = Configuration::where('key', $key);
+        if ($config->first()) {
+            return $config->first()->value;
+        }
 
-    	return 'red';
+        return $defaultValue;
     }
 }

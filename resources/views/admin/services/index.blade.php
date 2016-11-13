@@ -23,7 +23,7 @@
 			</td>
 			<td>
 				<div class="btn-group">
-					<a class="btn btn-success" data-target="#services_update_{{ $service->id }}" data-toggle="tab">
+					<a class="btn btn-default" data-target="#services_update_{{ $service->id }}" data-toggle="tab">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</a>
 					<button class="btn btn-default"

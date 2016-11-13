@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'Website\HomeController@index');
+Route::get('/', 'Website\HomeController@index');
+Route::get('/theme/{slug}', 'Website\ThemeController@show');
+Route::get('/service/{slug}', 'Website\ServiceController@show');
 
 Route::get('/admin', 'Admin\HomeController@index');
 Route::group(['prefix' => '/admin/'], function () {
@@ -36,6 +34,7 @@ Route::group(['prefix' => '/admin/'], function () {
     Route::post('/product/update', 'Admin\ProductController@update');
     Route::post('/offer/update', 'Admin\OfferController@update');
     Route::post('/service/update', 'Admin\ServiceController@update');
+    Route::post('/configuration/update', 'Admin\ConfigurationController@update');
 
     Route::post('/theme/destroy', 'Admin\ThemeController@destroy');
     Route::post('/product/destroy', 'Admin\ProductController@destroy');

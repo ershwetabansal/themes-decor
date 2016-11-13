@@ -1,0 +1,25 @@
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  display: block;
+  width: 80%;
+  height: auto;
+  line-height: 1;
+  margin: 0 auto;
+}
+
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(lighten($branding-color, 90%), 0) 0%, $branding-color 100%);
+  background-image: linear-gradient(to right,rgba(lighten($branding-color, 90%), 0) 0%, $branding-color 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+
+.carousel-control.left {
+  right: auto;
+  left: 0;
+  background-image: -webkit-linear-gradient(right, rgba(lighten($branding-color, 90%), 0) 0%, $branding-color 100%);
+  background-image: linear-gradient(to left,rgba(lighten($branding-color, 90%), 0) 0%, $branding-color 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}

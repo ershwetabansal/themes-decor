@@ -1,5 +1,8 @@
- <nav class="navbar navbar-default">
+ <nav class="navigation navbar-default">
     <div class="container">
+            <h1>
+                <a href="/">{{ \App\Configuration::getValue('name', config('app.name')) }}</a>
+            </h1>
             <ul class="nav navbar-nav">
                 <li>
                     <a href="">Book a party</a>
@@ -12,13 +15,12 @@
                     We decorate
                     <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu"> 
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach($services as $service)
                         <li>
-                            <a href="">Birthday party</a>
+                            <a href="/service/{{ $service->slug }}">{{ $service->name }}</a>
                         </li>
-                        <li>
-                            <a href="">Engagement ceremeony</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
 
@@ -27,13 +29,12 @@
                     Themes
                     <span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu"> 
-                        <li>
-                            <a href="">Balloons</a>
-                        </li>
-                        <li>
-                            <a href="">Santa</a>
-                        </li>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach($themes as $theme)
+                            <li>
+                                <a href="/theme/{{ $theme->slug }}">{{ $theme->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>

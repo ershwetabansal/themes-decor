@@ -10,24 +10,14 @@ use App\Http\Controllers\Controller;
 class ServiceController extends Controller
 {
     /**
-     * @var DiskBrowser
-     */
-    private $browser;
-
-    /**
-     * @var string
-     */
-    private $path;
-
-    /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('admin');
-        $this->browser = new DiskBrowser('image_disk');
         $this->path = '/services/';
 
     }

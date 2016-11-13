@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\DiskBrowser\DiskBrowser;
+use App\Theme;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ThemeController extends Controller
 {
-    /**
+   /**
      * Create a new controller instance.
      *
      * @return void
@@ -18,16 +20,17 @@ class HomeController extends Controller
         $this->path = '/themes/';
     }
 
-
     /**
-     * Show the application dashboard.
+     * Show the requested theme.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function show($slug)
     {
-        $images = $this->browser->listAllFilesIn($this->path);
+        $theme = Theme::where('slug', $slug)->firstOrFail();
 
-        return view('home', compact('images'));
+        $images = $this->browser->listFilesIn($this->path . $slug);
+
+        return view('app.themes.show', compact('theme', 'images'));
     }
 }

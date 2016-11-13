@@ -1,0 +1,22 @@
+header {
+  background: $branding-color;
+}
+
+.navbar-nav > li > a {
+  padding: 8px 12px;
+}
+
+.navbar-static-top {
+  background: #efefef;
+  border-bottom: 1px solid #e6e4e4;
+  position: fixed;
+  width: 100%;
+}
+
+.navbar-nav > li:last-of-type {
+  margin-right: 16px;
+}
+
+.navigation {
+  padding-top: 50px;
+}

@@ -9,15 +9,6 @@ use App\Http\Controllers\Controller;
 
 class ThemeController extends Controller
 {
-    /**
-     * @var DiskBrowser
-     */
-    private $browser;
-
-    /**
-     * @var string
-     */
-    private $path;
 
     /**
      * Create a new controller instance.
@@ -26,8 +17,8 @@ class ThemeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('admin');
-        $this->browser = new DiskBrowser('image_disk');
         $this->path = '/themes/';
 
     }

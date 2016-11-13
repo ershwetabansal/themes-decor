@@ -17,7 +17,7 @@
             <div class="modal-footer">
                 <img src="/images/site/loading.gif" alt="Loading" class="hidden" id="loading"/>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button id="process-btn" type="button" class="btn btn-success">Yes</button>
+                <button id="process-btn" type="button" class="btn btn-danger">Yes</button>
             </div>
         </div>
     </div>

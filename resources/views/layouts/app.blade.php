@@ -22,13 +22,18 @@
     @stack('styles_scripts')
 </head>
 <body>
-    @include('app.header')
 
-    @include('app.head_section')
+    <header>
+        @include('app.header')
 
-    @include('app.navigation')
+        @include('app.navigation')
+    </header>
 
     @yield('content')
+
+    <footer>
+        @include('app.footer')
+    </footer>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

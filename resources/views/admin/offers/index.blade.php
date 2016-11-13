@@ -35,7 +35,7 @@
 			</td>
 			<td>
 				<div class="btn-group">
-					<a class="btn btn-success" data-target="#offers_update_{{ $offer->id }}" data-toggle="tab">
+					<a class="btn btn-default" data-target="#offers_update_{{ $offer->id }}" data-toggle="tab">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</a>
 					<button class="btn btn-default"
@@ -43,7 +43,7 @@
 							data-disks="Offers">
 						<i class="fa fa-picture-o" aria-hidden="true"></i>
 					</button>
-					<button class="btn btn-danger"
+					<button class="btn btn-default"
 							data-modal="confirmation"
 							data-message="Are you sure you want to delete {{ $offer->name }} theme?"
 							data-form="{{ $offer->id }}_delete">

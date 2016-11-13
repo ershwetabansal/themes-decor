@@ -1,0 +1,30 @@
+.list-social-links {
+  margin-bottom: 0;
+  li {
+    border: 1px solid;
+    border-radius: 50%;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-right: 10px;
+    margin-left: 10px;
+    a {
+      display: inline-block;
+      width: 29px;
+      height: 33px;
+      padding-top: 5px;
+      &, &:focus, &:active, &:hover {
+        color: white;
+      }
+    }
+
+    &:hover {
+      background: white;
+      a {
+        &, &:focus, &:active, &:hover {
+          color: black;
+        }
+      }
+
+    }
+  }
+}
