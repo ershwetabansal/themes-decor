@@ -16,6 +16,9 @@ Auth::routes();
 Route::get('/', 'Website\HomeController@index');
 Route::get('/theme/{slug}', 'Website\ThemeController@show');
 Route::get('/service/{slug}', 'Website\ServiceController@show');
+Route::get('/shop', 'Website\ProductController@index');
+Route::post('/cart/store', 'Website\CartController@store');
+Route::get('/checkout', 'Website\CartController@index');
 
 Route::get('/admin', 'Admin\HomeController@index');
 Route::group(['prefix' => '/admin/'], function () {

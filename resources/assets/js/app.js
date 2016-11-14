@@ -1,4 +1,31 @@
 /**
+ * Make post request.
+ *
+ * @param url
+ * @param params
+ * @param onsuccess
+ * @param onfailure
+ */
+function makePostRequest(url, params, onsuccess, onfailure)
+{
+    $.ajax({
+        url: url,
+        method: 'POST',
+        data: params,
+        success: function(response) {
+            if (onsuccess) onsuccess(response);
+        },
+        error: function(response) {
+            if (onfailure) {
+                console.log(response.responseJSON);
+                (response && response.responseJSON) ? onfailure(response.responseJSON, true) :
+                    onfailure(response, false);
+            }
+        }
+    });
+}
+
+/**
  * Returns slugified text with the given separator and uses '-' if no separator is present
  * @param text
  * @param separator

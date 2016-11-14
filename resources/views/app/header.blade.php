@@ -39,6 +39,12 @@
                     </ul>
                 </li>
             @endif
+
+            <li>
+                <a href="/checkout">
+                    Basket ({{ $totalCartItems }})
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

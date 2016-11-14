@@ -1,0 +1,9 @@
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-unbrekable {
+  white-space: nowrap;
+}

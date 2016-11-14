@@ -19,7 +19,7 @@ elixir(function (mix) {
     mix.sass('theme/blue.scss')
     .sass('theme/red.scss')
     .sass('theme/santa.scss');
-    mix.scripts(['app.js', 'modal.js'], 'public/js/app.js');
+    mix.scripts(['app.js', 'modal.js', 'cart.js'], 'public/js/app.js');
     mix.scripts(['disk_browser.js'], 'public/js/disk_browser.js');
 
    	mix.version(['public/css/red.css', 'public/css/blue.css','public/css/santa.css']);

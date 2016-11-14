@@ -8,7 +8,7 @@
                     <a href="">Book a party</a>
                 </li>
                 <li>
-                    <a href="">Shop online</a>
+                    <a href="/shop">Shop online</a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
