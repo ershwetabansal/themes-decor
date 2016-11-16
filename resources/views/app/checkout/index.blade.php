@@ -30,11 +30,14 @@
                                 {{ $item->price }}
                             </td>
                             <td>
+
                                 <div class="input-group">
-                                    <span class="input-group-addon" data-type="decrement" data-update="quantity">-</span>
+                                    <span class="input-group-addon" data-type="decrement"
+                                          data-update="{{ $item->rowId }}_quantity">-</span>
                                     <input type="number" value="{{ $item->qty }}" class="form-control text-center"
-                                    data-type="quantity" name="quantity">
-                                    <span class="input-group-addon" data-type="increment" data-update="quantity">+</span>
+                                           data-type="{{ $item->rowId }}_quantity" name="quantity" data-id="{{ $item->rowId }}"/>
+                                    <span class="input-group-addon" data-type="increment"
+                                          data-update="{{ $item->rowId }}_quantity">+</span>
                                 </div>
                             </td>
                         </tr>

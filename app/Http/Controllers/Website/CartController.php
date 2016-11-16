@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Website;
 
 use App\Product;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -31,11 +31,12 @@ class CartController extends Controller
     {
         $product = Product::where('id', $request->input('id'))->firstOrFail();
 
-        Cart::add($product->id, $product->name, $request->input('quantity'), $product->price, ['size' => 'large']);
+        $cart = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price, ['size' => 'large']);
 
         return [
             'success'   => true,
-            'message'   => 'Added successfully'
+            'message'   => 'Added successfully',
+            'count'     => Cart::content()->count(),
         ];
     }
 
@@ -51,7 +52,8 @@ class CartController extends Controller
 
         return [
             'success'   => true,
-            'message'   => 'Added successfully'
+            'message'   => 'Added successfully',
+            'count'     => Cart::content()->count(),
         ];
     }
 
@@ -67,7 +69,8 @@ class CartController extends Controller
 
         return [
             'success'   => true,
-            'message'   => 'Added successfully'
+            'message'   => 'Added successfully',
+            'count'     => Cart::content()->count(),
         ];
     }
 

@@ -12,6 +12,9 @@ function makePostRequest(url, params, onsuccess, onfailure)
         url: url,
         method: 'POST',
         data: params,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         success: function(response) {
             if (onsuccess) onsuccess(response);
         },

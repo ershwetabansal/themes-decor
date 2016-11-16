@@ -42,7 +42,7 @@
 
             <li>
                 <a href="/checkout">
-                    Basket ({{ $totalCartItems }})
+                    Basket (<span data-type="cart_items_count">{{ $totalCartItems }}</span>)
                 </a>
             </li>
         </ul>
