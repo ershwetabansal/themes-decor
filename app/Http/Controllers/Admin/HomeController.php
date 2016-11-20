@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Page;
+use App\PageType;
 use App\Theme;
 use App\Offer;
 use App\Product;
@@ -35,8 +37,11 @@ class HomeController extends Controller
     	$products = Product::orderBy('created_at', 'desc')->paginate();
     	$configurations = Configuration::orderBy('created_at', 'desc')->paginate();
     	$services = Service::orderBy('created_at', 'desc')->paginate();
-    	
-        return view('admin', compact('themes', 'products', 'offers', 'configurations', 'services'));
+    	$pages = Page::orderBy('created_at', 'desc')->with('pageType')->paginate();
+    	$pageTypes = PageType::orderBy('created_at', 'desc')->paginate();
+
+        return view('admin', compact('themes', 'products', 'offers', 'configurations', 'services',
+            'pages', 'pageTypes'));
     }
 
 }

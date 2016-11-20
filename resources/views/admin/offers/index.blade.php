@@ -45,7 +45,7 @@
 					</button>
 					<button class="btn btn-default"
 							data-modal="confirmation"
-							data-message="Are you sure you want to delete {{ $offer->name }} theme?"
+							data-message="Are you sure you want to delete {{ $offer->name }} offer?"
 							data-form="{{ $offer->id }}_delete">
 						<i class="fa fa-trash-o" aria-hidden="true"></i>
 					</button>

@@ -11,6 +11,7 @@
                         <li role="presentation"><a data-toggle="tab" href="#services">Services</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#products">Products</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#offers">Offers</a></li>
+                        <li role="presentation"><a data-toggle="tab" href="#pages">Pages</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#customize">Customize content</a></li>
                     </ul>
                 </div>
@@ -44,6 +45,13 @@
                             </a>
                             @include('admin.offers.index')
                         </div>
+                        <div class="tab-pane fade" id="pages">
+                            <a data-toggle="tab" data-target="#pages_create" class="btn btn-default">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add new page
+                            </a>
+                            @include('admin.pages.index')
+                        </div>
                         <div class="tab-pane fade" id="customize">
                             @include('admin.customize.index')
                         </div>
@@ -58,6 +66,10 @@
                         <div class="tab-pane fade" id="products_create">
                             @include('admin.products.create')
                             <a data-target="#products" data-toggle="tab" class="pull-right">Go back</a>
+                        </div>
+                        <div class="tab-pane fade" id="pages_create">
+                            @include('admin.pages.create')
+                            <a data-target="#pages" data-toggle="tab" class="pull-right">Go back</a>
                         </div>
                         <div class="tab-pane fade" id="offers_create">
                             @include('admin.offers.create')
@@ -81,6 +93,13 @@
                             <div class="tab-pane fade" id="products_update_{{ $product->id }}">
                                 @include('admin.products.update')
                                 <a data-target="#products" data-toggle="tab" class="pull-right">Go back</a>
+                            </div>
+                        @endforeach
+
+                        @foreach($pages as $page)
+                            <div class="tab-pane fade" id="pages_update_{{ $page->id }}">
+                                @include('admin.pages.update')
+                                <a data-target="#pages" data-toggle="tab" class="pull-right">Go back</a>
                             </div>
                         @endforeach
 

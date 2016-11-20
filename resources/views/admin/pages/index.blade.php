@@ -8,16 +8,13 @@
 				Description
 			</th>
 			<th>
-				Quantity
+				Title
 			</th>
 			<th>
-				Unit
+				Content
 			</th>
 			<th>
-				Price
-			</th>
-			<th>
-				Discount
+				Template
 			</th>
 			<th>
 				Images
@@ -25,47 +22,44 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($products as $product)
+		@foreach($pages as $page)
 		<tr>
 			<td>
-				{{ $product->name }}
+				{{ $page->name }}
 			</td>
 			<td>
-				{{ $product->description }}
+				{{ $page->description }}
 			</td>
 			<td>
-				{{ $product->quantity }}
+				{{ $page->title }}
 			</td>
 			<td>
-				{{ $product->unit }}
+				{{ str_limit($page->content, 100) }}
 			</td>
 			<td>
-				{{ $product->price }}
-			</td>
-			<td>
-				{{ $product->discount }}
+				{{ $page->pageType->name }}
 			</td>
 			<td>
 				<div class="btn-group">
-					<a class="btn btn-default" data-target="#products_update_{{ $product->id }}" data-toggle="tab">
+					<a class="btn btn-default" data-target="#pages_update_{{ $page->id }}" data-toggle="tab">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</a>
 					<button class="btn btn-default"
 							data-disk-browser="true"
-							data-disks="Products">
+							data-disks="Pages">
 						<i class="fa fa-picture-o" aria-hidden="true"></i>
 					</button>
 					<button class="btn btn-default"
 							data-modal="confirmation"
-							data-message="Are you sure you want to delete {{ $product->name }} product?"
-							data-form="{{ $product->id }}_delete">
+							data-message="Are you sure you want to delete {{ $page->name }} page?"
+							data-form="{{ $page->id }}_delete">
 						<i class="fa fa-trash-o" aria-hidden="true"></i>
 					</button>
 				</div>
 
-				<form method="POST" action="{{ url('/admin/product/destroy') }}" id="{{ $product->id }}_delete">
+				<form method="POST" action="{{ url('/admin/page/destroy') }}" id="{{ $page->id }}_delete">
 					{{ csrf_field() }}
-					<input type="hidden" name="id" value="{{ $product->id }}">
+					<input type="hidden" name="id" value="{{ $page->id }}">
 				</form>
 
 			</td>			
