@@ -5,7 +5,7 @@
             </h1>
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="">Book a party</a>
+                    <a href="/book-a-party">Book a party</a>
                 </li>
                 <li>
                     <a href="/shop">Shop online</a>

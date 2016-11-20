@@ -24,6 +24,7 @@ class PageController extends Controller
     /**
      * Show the requested page.
      *
+     * @param string $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container content-container">
+    <div class="content-container content-with-carousel">
         <h2 class="title">
             {{ $service->name }}
         </h2>

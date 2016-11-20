@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container content-container">
+    <div class="content-container">
         <ul class="list-products">
             @foreach($products as $product)
                 <li class="text-center">
