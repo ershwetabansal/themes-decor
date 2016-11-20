@@ -42,7 +42,7 @@
   <div class="form-group">
     <label for="input6" class="col-sm-2 control-label">Page type</label>
     <div class="col-sm-10">
-      <select name="page_type_id" id="input6" required>
+      <select name="page_type_id" id="input6" class="form-control" required>
         @foreach($pageTypes as $pageType)
           <option value="{{ $pageType->id }}"
             @if($page->page_type_id == $pageType->id) selected @endif

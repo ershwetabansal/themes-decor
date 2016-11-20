@@ -22,7 +22,7 @@ class ProductController extends Controller
 
 
     /**
-     * Show the application dashboard.
+     * Show the products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,5 +35,20 @@ class ProductController extends Controller
 
         return view('app.products.index', compact('products'));
     }
+
+
+    /**
+     * Show the product details.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $images = $this->browser->listFilesIn($this->path . $product->slug);
+
+        return view('app.products.show', compact('product', 'images'));
+    }
+
 
 }

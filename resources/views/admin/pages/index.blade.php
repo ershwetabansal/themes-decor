@@ -49,20 +49,8 @@
 							data-disks="Pages">
 						<i class="fa fa-picture-o" aria-hidden="true"></i>
 					</button>
-					<button class="btn btn-default"
-							data-modal="confirmation"
-							data-message="Are you sure you want to delete {{ $page->name }} page?"
-							data-form="{{ $page->id }}_delete">
-						<i class="fa fa-trash-o" aria-hidden="true"></i>
-					</button>
 				</div>
-
-				<form method="POST" action="{{ url('/admin/page/destroy') }}" id="{{ $page->id }}_delete">
-					{{ csrf_field() }}
-					<input type="hidden" name="id" value="{{ $page->id }}">
-				</form>
-
-			</td>			
+			</td>
 		</tr>
 		@endforeach
 	</tbody>

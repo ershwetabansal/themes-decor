@@ -4,7 +4,6 @@ section {
     height: 80vh;
     overflow: hidden;
     margin-bottom: 20px;
-    border-top: 11px solid $branding-color;
     border-bottom: 11px solid $branding-color;
     background: lighten($branding-color, 90%);
     .fa-chevron-left {
@@ -18,5 +17,6 @@ section {
     height: 80vh;
     border-top: 5px solid;
     margin-top: 20px;
+    padding-top: 20px;
   }
 }

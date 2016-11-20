@@ -8,7 +8,7 @@
                 <li><a href="{{ url('/register') }}">Register</a></li>
             @endif
             <li>
-                <a href="{{ url('/contact') }}">Contact us</a>
+                <a href="{{ url('/contact-us') }}">Contact us</a>
             </li>
             <li>
                 <a href="{{ url('/') }}">Track order</a>
