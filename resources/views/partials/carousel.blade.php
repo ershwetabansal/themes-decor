@@ -1,9 +1,20 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="4000">
+<section id="Carousel">
+
+@if(isset($item) && $item->description)
+    <div class="content">
+        <div class="title">{{ $item->name }}</div>
+        <div>{{ $item->descrdition }}</div>
+    </div>
+    <div class="content overlay">{{ $item->description }}</div>
+@endif
+
+<div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        @foreach($images as $key=>$image)
+            <li data-target="#carousel" data-slide-to="{{ $key }}"
+                @if ($key == 0) class="active" @endif></li>
+        @endforeach
     </ol>
 
     <!-- Wrapper for slides -->
@@ -19,12 +30,13 @@
     </div>
 
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
         <span class="sr-only">Next</span>
     </a>
 </div>
+</section>

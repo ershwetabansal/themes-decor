@@ -1,12 +1,27 @@
  <nav class="navigation navbar-default">
-     <h1 class="logo text-center">
-         <a href="/">{{ \App\Configuration::getValue('name', config('app.name')) }}</a>
-     </h1>
+     <div class="logo row">
+         <div class="col-md-4">
+             <a href="/">{{ \App\Configuration::getValue('name', config('app.name')) }}</a>
+         </div>
+         <div class="col-md-4">
+             <form action="/search" method="get">
+                 <div class="input-group">
+                     <input type="text" class="form-control" name="text" placeholder="Search for any item.."/>
+                     <span class="input-group-addon" role="button" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                     </span>
+                 </div>
+             </form>
+         </div>
+
+         <div class="col-md-4 text-right">
+             <a href="/book-a-party" class="btn btn-primary">Book a party</a>
+         </div>
+
+
+     </div>
      <div class="list-navigation">
          <ul class="list-inline ">
-             <li>
-                 <a href="/book-a-party">Book a party</a>
-             </li>
              <li>
                  <a href="/shop">Shop online</a>
              </li>

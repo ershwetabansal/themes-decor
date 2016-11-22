@@ -7,10 +7,24 @@ section {
     border-bottom: 11px solid $branding-color;
     background: lighten($branding-color, 90%);
     .fa-chevron-left {
-      margin-top: 40vh;
+      margin-top: 30vh;
     }
     .fa-chevron-right {
-      margin-top: 40vh;
+      margin-top: 30vh;
+    }
+
+    .carousel-indicators {
+      top: 64vh;
+      li {
+        background: white;
+        opacity: 0.5;
+        border: none;
+        width: 15px;
+        height: 15px;
+      }
+      li.active {
+        opacity: 1;
+      }
     }
   }
   &#admin {

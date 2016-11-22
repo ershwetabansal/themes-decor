@@ -33,5 +33,8 @@ a[data-toggle="tab"] {
 
 .input-group-addon {
     cursor: pointer;
-
+    border-radius: 0;
+}
+.form-control {
+    border-radius: 0;
 }
