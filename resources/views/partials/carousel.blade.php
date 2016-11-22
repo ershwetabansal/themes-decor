@@ -2,10 +2,9 @@
 
 @if(isset($item) && $item->description)
     <div class="content">
-        <div class="title">{{ $item->name }}</div>
-        <div>{{ $item->descrdition }}</div>
+        <div class="title text-center">{{ $item->name }}</div>
+        <div class="overlay text-center">{{ $item->description }}</div>
     </div>
-    <div class="content overlay">{{ $item->description }}</div>
 @endif
 
 <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">

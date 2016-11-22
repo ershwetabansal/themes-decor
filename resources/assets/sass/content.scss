@@ -1,16 +1,10 @@
 
-
-.logo {
-    margin: 30px 0;
-}
-
 .title {
     z-index: 10;
     padding: 10px;
     text-transform: uppercase;
-    //box-shadow: rgba(0,0,0,0.5) 0 14px 10px -11px;
-
     border-bottom: 1px solid $branding-color;
+
 }
 
 .content-container {
@@ -24,14 +18,13 @@
     padding: 0;
 
     .title {
-        background: $branding-color;
+        background: lighten($branding-color, 10%);
         color: white;
-        margin-bottom: 7px;
+        margin-bottom: 2px;
     }
 
     .content {
         position: absolute;
-        padding: 0 1em;
         bottom: 0;
         z-index: 1000;
         right: 1px;
@@ -39,12 +32,11 @@
     }
 
     .overlay {
-        opacity: 0.8;
+        opacity: 0.6;
         background: white;
-        border: 1px solid;
         z-index: 900;
         color: black;
-        padding-top: 20px;
+        padding: 20px;
     }
 }
 

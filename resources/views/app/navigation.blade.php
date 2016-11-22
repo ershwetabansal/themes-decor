@@ -1,7 +1,10 @@
  <nav class="navigation navbar-default">
-     <div class="logo row">
+     <div class="header-center row">
          <div class="col-md-4">
-             <a href="/">{{ \App\Configuration::getValue('name', config('app.name')) }}</a>
+             <a href="/">
+                 <img class="logo" src="/images/site/logo.png" alt="Logo">
+                <span class="app-name">{{ \App\Configuration::getValue('name', config('app.name')) }}</span>
+             </a>
          </div>
          <div class="col-md-4">
              <form action="/search" method="get">
