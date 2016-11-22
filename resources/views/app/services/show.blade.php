@@ -2,13 +2,11 @@
 
 @section('content')
     <div class="content-container content-with-carousel">
-        <h2 class="title">
-            {{ $service->name }}
-        </h2>
         <section id="Carousel">
             @if($service->description)
                 <div class="content">
-                    {{ $service->description }}
+                    <div class="title">{{ $service->name }}</div>
+                    <div>{{ $service->description }}</div>
                 </div>
                 <div class="content overlay">{{ $service->description }}</div>
             @endif

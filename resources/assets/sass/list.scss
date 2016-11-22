@@ -85,3 +85,22 @@
     margin: 0 auto;
   }
 }
+
+.list-navigation {
+  background: $branding-color;
+  > ul {
+    margin-bottom: 0;
+    > li {
+      line-height: 42px;
+      > a {
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+      }
+      &:hover {
+        background: lighten($branding-color, 10%);
+      }
+    }
+  }
+
+}
