@@ -19,7 +19,7 @@
 
     .title {
         background: lighten($branding-color, 10%);
-        color: white;
+        color: $dark-background-text-color;
         opacity: 0.8;
         margin-bottom: 2px;
     }
@@ -36,12 +36,8 @@
         opacity: 0.6;
         background: white;
         z-index: 900;
-        color: black;
+        color: $text-color;
         padding: 20px;
         margin-left: 50px;
     }
-}
-
-.content-page {
-
 }

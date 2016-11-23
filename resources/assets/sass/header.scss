@@ -1,5 +1,9 @@
 .header-center {
   padding: 37px 15px;
+  background-image: url('/images/site/confetti.png');
+  background-size: contain;
+  background-position-y: -22px;
+  background-repeat-y: no-repeat;
 
   .app-name {
     font-size: 25px;

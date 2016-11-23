@@ -13,7 +13,7 @@
       height: 33px;
       padding-top: 5px;
       &, &:focus, &:active, &:hover {
-        color: white;
+        color: $dark-background-text-color;
       }
     }
 
@@ -21,7 +21,7 @@
       background: white;
       a {
         &, &:focus, &:active, &:hover {
-          color: black;
+          color: $text-color;
         }
       }
 
@@ -103,7 +103,7 @@
     > li {
       line-height: 42px;
       > a {
-        color: white;
+        color: $dark-background-text-color;
         padding: 12px;
         text-decoration: none;
       }
