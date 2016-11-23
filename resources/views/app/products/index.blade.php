@@ -12,7 +12,8 @@
                             <span class="text-discount">{{ $product->discount }}</span>
                         @endif
                         @if(sizeof($product->images) > 0 && $image = $product->images[0])
-                            <img src="{{ $image['path'] . $image['name'] }}" alt="{{ $product->name }}"/>
+                            <img src="{{ $image['path'] . $image['name'] }}"
+                                 class="product" alt="{{ $product->name }}"/>
                         @endif
                         <h2 class="text-truncate">
                             <a href="/product/{{ $product->slug }}" target="_blank">
@@ -20,10 +21,14 @@
                             </a>
                         </h2>
                         <span class="price">
-                        {{ $product->price }} Rs
+                            {{ $product->price }} Rs
                         </span>
-{{--                        {{ TODO:: On hover of cart button, you can display the quantity field }}--}}
-                        <button class="btn btn-primary btn-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                        <input type="hidden" name="quantity" value="1">
+                        <span class="in-cart {{ $product->addedToCart ? '' : 'hidden' }}" data-type="success">Added to the cart</span>
+                        <button class="btn btn-primary btn-cart">
+                            <img src="/images/site/loading.gif" alt="Loading" class="hidden" data-type="loading">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </li>
             @endforeach

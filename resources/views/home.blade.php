@@ -35,13 +35,7 @@
     </section>
     @endif
     <section id="products">
-        <ul class="list-inline">
-            @foreach($products as $product)
-                <li>
-                    {{ $product->name }}
-                </li>
-            @endforeach
-        </ul>
+        @include('app.products.carousel')
     </section>
 </div>
 @endsection

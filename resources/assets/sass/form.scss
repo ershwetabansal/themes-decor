@@ -1,11 +1,16 @@
 
 .btn {
   border-radius: 0;
-  border: 1px solid $branding-color;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-primary {
+  border: 1px solid $branding-color;
   color : $dark-background-text-color;
+  background: $branding-color;
 }
 .input-group {
   border-spacing: 0;

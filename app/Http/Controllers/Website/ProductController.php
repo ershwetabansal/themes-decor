@@ -28,9 +28,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $cartItems = Cart::content();
+
         $products = Product::paginate();
-        $products->each(function($product) {
+        $products->each(function($product) use ($cartItems) {
             $product->images = $this->browser->listFilesIn($this->path . $product->slug);
+            $product->addedToCart = $cartItems->filter(function ($item) use($product) {
+                return $item->id == $product->id;
+            })->count() > 0;
         });
 
         return view('app.products.index', compact('products'));
@@ -47,7 +52,11 @@ class ProductController extends Controller
         $product = Product::where('slug', $slug)->firstOrFail();
         $images = $this->browser->listFilesIn($this->path . $product->slug);
 
-        return view('app.products.show', compact('product', 'images'));
+        $products = Product::orderBy('created_at', 'desc')->limit(10)->get();
+        $products->map(function ($product) {
+            $product->images =   $this->browser->listAllFilesIn('/products/' . $product->slug);
+        });
+        return view('app.products.show', compact('product', 'images', 'products'));
     }
 
 

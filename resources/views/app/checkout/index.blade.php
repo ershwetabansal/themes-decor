@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-container">
+    <div class="content-container m-t-sm">
         <div class="row">
             <div class="col-md-8">
                 <h2>Shopping Basket</h2>
 
             </div>
             <div class="col-md-4 text-right">
-                <a class="btn btn-success" >
+                <a class="btn btn-primary" >
                     Proceed to checkout
                 </a>
                 <a class="btn btn-info" href="/shop">
@@ -53,9 +53,11 @@
                         </div>
                     </td>
                     <td>
-                        <button class="btn btn-link">Remove</button>
+                        <button class="btn btn-link" data-type="remove" data-id="{{ $item->rowId }}"
+                        >Remove</button>
                         |
-                        <button class="btn btn-link">Save for later</button>
+                        <button class="btn btn-link" data-type="move" data-id="{{ $item->rowId }}"
+                        >Save for later</button>
                     </td>
                 </tr>
             @endforeach

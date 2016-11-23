@@ -36,8 +36,17 @@
         opacity: 0.6;
         background: white;
         z-index: 900;
-        color: $text-color;
+        color: black;
         padding: 20px;
         margin-left: 50px;
     }
+}
+
+.in-cart {
+    position: absolute;
+    top: 81px;
+    opacity: 0.7;
+    left: 43px;
+    background: lightgrey;
+    padding: 3px 10px;
 }

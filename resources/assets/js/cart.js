@@ -10,17 +10,25 @@
         });
         var posting = $.post( url, data );
 
+        $form.find('[data-type="loading"]').removeClass('hidden');
+        $form.find('.fa-cart-plus').addClass('hidden');
         /* Alerts the results */
         posting.done(function( data ) {
             console.log(data);
+            $form.find('[data-type="success"]').removeClass('hidden');
+            $form.find('[data-type="loading"]').addClass('hidden');
+            $form.find('.fa-cart-plus').removeClass('hidden');
             $('[data-type="cart_items_count"]').text(data.count);
+        }, function () {
+            $form.find('.fa-cart-plus').removeClass('hidden');
+            $form.find('[data-type="loading"]').addClass('hidden');
         });
     });
 
     $('[data-type="decrement"]').on('click', function () {
         var updateField = $('[data-type="'+$(this).data('update')+'"]');
         updateField.val(parseInt(updateField.val()) - 1);
-        updateServer(parseInt(updateField.val()), updateField.data('id'));
+        updateServer(parseInt(updateField.val()), updateField.data('id'), updateField);
         if (updateField.val() == '0') {
             $(this).closest('tr').addClass('hidden');
         }
@@ -29,16 +37,23 @@
     $('[data-type="increment"]').on('click', function () {
         var updateField = $('[data-type="'+$(this).data('update')+'"]');
         updateField.val(parseInt(updateField.val()) + 1);
-        updateServer(parseInt(updateField.val()), updateField.data('id'));
+        updateServer(parseInt(updateField.val()), updateField.data('id'), updateField);
     });
 
-    function updateServer(quantity, rowId) {
+    $('[data-type="remove"]').on('click', function () {
+        updateServer(0, $(this).data('id'), $(this));
+    });
+
+
+
+    function updateServer(quantity, rowId, field) {
 
         if (quantity == 0) {
             makePostRequest('/cart/destroy', {
                 id :rowId
             }, function (data) {
                 console.log(data);
+                field.closest('tr').remove();
                 $('[data-type="cart_items_count"]').text(data.count);
             });
             return;

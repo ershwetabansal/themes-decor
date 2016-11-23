@@ -4,7 +4,7 @@
 
 $branding-color: #01233f;
 $font-family-sans-serif: "Raleway", sans-serif;
-$text-color: #daa520;
+$text-color: $branding-color;
 $dark-background-text-color: #daa520;
 
 @import "../app.scss";
