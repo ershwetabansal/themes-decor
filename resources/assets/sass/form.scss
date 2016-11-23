@@ -1,0 +1,21 @@
+
+.btn {
+  border-radius: 0;
+  border: 1px solid $branding-color;
+}
+
+.input-group {
+  border-spacing: 0;
+}
+
+.input-group-addon {
+  cursor: pointer;
+  border-radius: 0;
+  border: 1px solid $branding-color;
+  background: lighten($branding-color, 10%);
+  color: white;
+}
+.form-control {
+  border-radius: 0;
+  border: 1px solid $branding-color;
+}

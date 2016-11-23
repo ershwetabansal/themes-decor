@@ -1,9 +1,11 @@
 <section id="Carousel">
 
-@if(isset($item) && $item->description)
+@if(isset($item))
     <div class="content">
         <div class="title text-center">{{ $item->name }}</div>
-        <div class="overlay text-center">{{ $item->description }}</div>
+        @if($item->description)
+            <div class="overlay text-center">{{ $item->description }}</div>
+        @endif
     </div>
 @endif
 

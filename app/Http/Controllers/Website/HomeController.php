@@ -2,23 +2,13 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Product;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->path = '/themes/';
-    }
-
-
     /**
      * Show the application dashboard.
      *
@@ -26,8 +16,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $images = $this->browser->listAllFilesIn($this->path);
+        $images = $this->browser->listAllFilesIn('/themes/');
 
-        return view('home', compact('images'));
+        $products = Product::orderBy('created_at', 'desc')->limit(10)->get();
+        $products->map(function ($product) {
+           $product->images =   $this->browser->listAllFilesIn('/products/' . $product->slug);
+        });
+        $servicesWithImages = Service::orderBy('created_at', 'desc')->limit(10)->get();
+        $servicesWithImages->map(function ($service) {
+            $service->images =   $this->browser->listAllFilesIn('/services/' . $service->slug);
+        });
+        return view('home', compact('images', 'products', 'servicesWithImages'));
     }
 }

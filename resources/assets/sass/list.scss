@@ -34,29 +34,39 @@
   padding-left: 0;
   display: table;
   border-spacing: 10px;
+  margin-top: 20px;
   li {
     position: relative;
-    border: 1px solid;
+    border: 1px solid transparent;
     display: table-cell;
     overflow: hidden;
     zoom: 1;
     margin: 0 0 12px 12px;
-    border: 1px solid #eee;
-    padding: 20px;
-    -webkit-box-shadow: 1px 1px 3px 0 #f2f2f2;
-    -moz-box-shadow: 1px 1px 3px 0 #f2f2f2;
-    -ms-box-shadow: 1px 1px 3px 0 #f2f2f2;
-    box-shadow: 1px 1px 3px 0 #f2f2f2;
-    background-size: 100% 200px;
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-image: -ms-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
-    background-image: -moz-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
-    background-image: -o-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#fafafa),color-stop(.2,#fdfdfd),color-stop(.6,#fff));
-    background-image: -webkit-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
-    background-image: linear-gradient(to top,#fafafa 0,#fdfdfd 20%,#fff 60%);
-
+    padding: 20px 0;
+    padding: 40px 0;
+    .btn-cart {
+      width: 0;
+    }
+    &:hover {
+      border: 1px solid #eee;
+      -webkit-box-shadow: 1px 1px 3px 0 #f2f2f2;
+      -moz-box-shadow: 1px 1px 3px 0 #f2f2f2;
+      -ms-box-shadow: 1px 1px 3px 0 #f2f2f2;
+      box-shadow: 1px 1px 3px 0 #f2f2f2;
+      background-size: 100% 200px;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      background-image: -ms-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
+      background-image: -moz-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
+      background-image: -o-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
+      background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#fafafa),color-stop(.2,#fdfdfd),color-stop(.6,#fff));
+      background-image: -webkit-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
+      background-image: linear-gradient(to top,#fafafa 0,#fdfdfd 20%,#fff 60%);
+      .btn-cart {
+        width: 90px;
+        transition: width 0.5s;
+      }
+    }
     img {
       max-width: 100%;
       height: 80px;
@@ -103,4 +113,21 @@
     }
   }
 
+}
+
+.list-services {
+  margin-top: 30vh;
+  li {
+    img {
+      height: 30vh;
+      border: 1px solid $branding-color;
+      padding: 2px;
+      margin: 0 40px;
+    }
+    &:hover {
+      img {
+        opacity: 0.8;
+      }
+    }
+  }
 }
