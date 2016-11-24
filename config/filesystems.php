@@ -62,10 +62,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key' => env('amazon-key'),
+            'secret' => env('amazon-secret'),
+            'region' => env('amazon-region'),
+            'bucket' => env('amazon-bucket'),
         ],
 
     ],
