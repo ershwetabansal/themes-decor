@@ -48,7 +48,7 @@ class Directory
     public static function exists($disk, $path)
     {
         if ($path != DIRECTORY_SEPARATOR && !Storage::disk($disk)->has($path)) {
-            throw new PathNotFoundInDiskException();
+            return false;
         }
         return true;
     }
@@ -65,7 +65,7 @@ class Directory
     public static function notExists($name, $disk, $path)
     {
         if (Storage::disk($disk)->has(Path::normalize($path) . $name)) {
-            throw new DirectoryAlreadyExistsException();
+            return false;
         }
         return true;
     }
