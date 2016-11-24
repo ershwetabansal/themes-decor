@@ -7,7 +7,6 @@ Homestead.json
 Homestead.yaml
 .env
 storage
-app/Exceptions/Filesystem
 public/images
 public/build
 public/css
