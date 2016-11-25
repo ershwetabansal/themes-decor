@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\Filesystem\DirectoryAlreadyExistsException;
 use App\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,11 @@ class PageController extends Controller
     {
         Page::create($request->all());
 
-        $this->browser->createDirectory($request->input('slug'), $this->path );
+        try {
+            $this->browser->createDirectory($request->input('slug'), $this->path );
+        } catch (DirectoryAlreadyExistsException $e) {
+
+        }
 
         return redirect('admin');
     }

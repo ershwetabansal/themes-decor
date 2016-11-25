@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\Filesystem\DirectoryAlreadyExistsException;
 use App\Service;
 use Illuminate\Http\Request;
 use App\DiskBrowser\DiskBrowser;
@@ -32,7 +33,11 @@ class ServiceController extends Controller
     {
         Service::create($request->all());
 
-        $this->browser->createDirectory($request->input('slug'), $this->path );
+        try {
+            $this->browser->createDirectory($request->input('slug'), $this->path );
+        } catch (DirectoryAlreadyExistsException $e) {
+
+        }
 
         return redirect('admin');
     }

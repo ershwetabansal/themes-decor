@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exceptions\Filesystem\DirectoryAlreadyExistsException;
 use App\Theme;
 use Illuminate\Http\Request;
 use App\DiskBrowser\DiskBrowser;
 use App\Http\Controllers\Controller;
+use League\Flysystem\Exception;
 
 class ThemeController extends Controller
 {
@@ -33,7 +35,11 @@ class ThemeController extends Controller
     {
     	Theme::create($request->all());
 
-        $this->browser->createDirectory($request->input('slug'), $this->path );
+    	try {
+            $this->browser->createDirectory($request->input('slug'), $this->path );
+        } catch (DirectoryAlreadyExistsException $e) {
+
+        }
 
         return redirect('admin');
     }
