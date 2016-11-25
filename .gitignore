@@ -6,7 +6,6 @@
 Homestead.json
 Homestead.yaml
 .env
-public/images
 public/build
 public/css
 public/js
