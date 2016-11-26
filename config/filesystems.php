@@ -50,7 +50,7 @@ return [
 
         'image_disk' => [
             'driver' => 'local',
-            'root'   => storage_path('app/public/images'),
+            'root'   => public_path('images'),
             'path_prefix'   => '/images',
         ],
 
