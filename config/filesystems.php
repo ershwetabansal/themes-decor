@@ -66,6 +66,7 @@ return [
             'secret' => env('amazon-secret'),
             'region' => env('amazon-region'),
             'bucket' => env('amazon-bucket'),
+            'path_prefix'   => env('amazon-prefix'),
         ],
 
     ],
