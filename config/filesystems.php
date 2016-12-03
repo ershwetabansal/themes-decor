@@ -48,11 +48,11 @@ return [
             'root'   => storage_path('app'),
         ],
 
-        'image_disk' => [
-            'driver' => 'local',
-            'root'   => public_path('images'),
-            'path_prefix'   => '/images',
-        ],
+        // 'image_disk' => [
+        //     'driver' => 'local',
+        //     'root'   => public_path('images'),
+        //     'path_prefix'   => '/images',
+        // ],
 
         'public' => [
             'driver' => 'local',
@@ -60,7 +60,7 @@ return [
             'visibility' => 'public',
         ],
 
-        's3' => [
+        'image_disk' => [
             'driver' => 's3',
             'key' => env('amazon-key'),
             'secret' => env('amazon-secret'),

@@ -105,7 +105,7 @@ class DiskBrowser implements DiskBrowserContract
             return Directory::metaDataOf(Path::normalize($path) . $name , $this->disk);
         }
 
-        throw new DirectoryAlreadyExistsException();
+        return false;
     }
 
     /**
