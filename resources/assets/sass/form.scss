@@ -1,5 +1,6 @@
 
 .btn {
+  padding: 9px 12px;
   border-radius: 0;
   outline: none;
   &:focus {
@@ -19,11 +20,16 @@
 .input-group-addon {
   cursor: pointer;
   border-radius: 0;
-  border: 1px solid $branding-color;
   background: lighten($branding-color, 10%);
   color: white;
+  padding: 6px 19px;
+  border: 2px solid white;
 }
 .form-control {
+  height: 45px;
   border-radius: 0;
-  border: 1px solid $branding-color;
+  border: 0;
+  &:focus, &:active, &:hover {
+    box-shadow: none;
+  }
 }

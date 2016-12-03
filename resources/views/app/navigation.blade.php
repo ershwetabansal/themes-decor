@@ -2,7 +2,7 @@
      <div class="header-center row">
          <div class="col-md-4">
              <a href="/">
-                 <img class="logo" src="/images/site/logo.png" alt="Logo">
+                 <!-- <img class="logo" src="/images/site/logo.png" alt="Logo"> -->
                 <span class="app-name">{{ \App\Configuration::getValue('name', config('app.name')) }}</span>
              </a>
          </div>
@@ -11,17 +11,11 @@
                  <div class="input-group">
                      <input type="text" class="form-control" name="text" placeholder="Search for any item.."/>
                      <span class="input-group-addon" role="button" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        Search
                      </span>
                  </div>
              </form>
          </div>
-
-         <div class="col-md-4 text-right">
-             <a href="/book-a-party" class="btn btn-primary">Book a party</a>
-         </div>
-
-
      </div>
      <div class="list-navigation">
          <ul class="list-inline ">
@@ -54,6 +48,9 @@
                          </li>
                      @endforeach
                  </ul>
+             </li>
+             <li>
+                 <a href="/book-a-party" >Book a party</a>
              </li>
          </ul>
      </div>

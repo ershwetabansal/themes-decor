@@ -3,9 +3,6 @@
 @section('content')
 <div class="container content-container">
     <div class="row">
-    {{ storage_path('app') }}<br/>
-    {{ public_path('images') }}<br/>
-    {{ storage_path('framework/sessions') }}
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>

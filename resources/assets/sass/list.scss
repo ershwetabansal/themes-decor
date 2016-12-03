@@ -100,18 +100,33 @@
 }
 
 .list-navigation {
-  background: $branding-color;
+  text-align: center;
   > ul {
+    background: $header-color;
+    border-bottom: 1px solid darken($header-color, 10%);
     margin-bottom: 0;
+    border-top: 1px solid darken($header-color, 10%);
     > li {
-      line-height: 42px;
+      padding: 0;
+      margin: 0;
       > a {
-        color: $dark-background-text-color;
-        padding: 12px;
+        color: $branding-color;
+        padding: 15px 45px;
         text-decoration: none;
+        font-size: 20px;
+        display: inline-block;
+        border-left: 1px solid darken($header-color, 10%);
+        margin-right: -5px;
+        &:hover, &:focus {
+          background: darken($branding-color, 10%);
+          color: $dark-background-text-color;
+        }
+
       }
-      &:hover {
-        background: lighten($branding-color, 10%);
+      &:last-of-type {
+        > a {
+          border-right: 1px solid darken($header-color, 10%);
+        }
       }
     }
   }
@@ -119,10 +134,10 @@
 }
 
 .list-services {
-  margin-top: 30vh;
+  
   li {
     img {
-      height: 30vh;
+      height: 149px;
       border: 1px solid $branding-color;
       padding: 2px;
       margin: 0 40px;

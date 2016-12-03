@@ -5,23 +5,43 @@
     @include('partials.carousel')
     <section id="services">
         <p class="hero text-center">
-            Themes & Decor is a boutique events company based in Meerut that specialises in weddings, private parties,
-            kids' parties and corporate events.
+            {{ \App\Configuration::getValue('home_content', '') }}
         </p>
-        <ul class="list-inline list-services text-center">
-            @foreach($servicesWithImages as $service)
-                <li>
-                    <a href="/service/{{ $service->slug }}">
-                        @if(sizeof($service->images) > 0)
-                            <img src="{{ $service->images[0]['path'] . $service->images[0]['name'] }}" alt="">
-                        @endif
-                        <div>
-                            {{ $service->name }}
-                        </div>
-                    </a>
-                </li>
+        
+        <div id="service-carousel" class="carousel slide">
+            
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+            @foreach($servicesWithImages->chunk(3) as $key=> $chunk)
+            <div class="item {{ $key == 0 ? 'active' : '' }}">
+                <ul class="list-inline list-services text-center">
+                @foreach($chunk as $service)
+                    <li>
+                        <a href="/service/{{ $service->slug }}">
+                            @if(sizeof($service->images) > 0)
+                                <img src="{{ $service->images[0]['path'] . $service->images[0]['name'] }}" alt="">
+                            @endif
+                            <div>
+                                {{ $service->name }}
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+            </div>
             @endforeach
-        </ul>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#service-carousel" role="button" data-slide="prev">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#service-carousel" role="button" data-slide="next">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </section>
     @if(isset($offers) && $offers->count() > 0)
     <section id="offers">
