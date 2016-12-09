@@ -58,7 +58,7 @@ class ProductController extends Controller
             $this->browser->renameDirectory($this->path, $oldName, $request->input('slug'));
         }
 
-        return redirect('admin');
+        return redirect()->back();
     }
 
     /**

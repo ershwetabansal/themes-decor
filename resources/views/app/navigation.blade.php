@@ -8,7 +8,7 @@
          </div>
          <div class="col-md-4">
              <form action="/search" method="get">
-                 <div class="input-group">
+                 <div class="input-group search">
                      <input type="text" class="form-control" name="text" placeholder="Search for any item.."/>
                      <span class="input-group-addon" role="button" type="submit">
                         Search

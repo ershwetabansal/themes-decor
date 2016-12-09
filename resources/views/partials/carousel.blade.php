@@ -29,15 +29,5 @@
             </div>
         @endforeach
     </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 </section>

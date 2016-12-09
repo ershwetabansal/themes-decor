@@ -6,7 +6,16 @@
     border-bottom: 1px solid $branding-color;
 
 }
-
+.package-title {
+            background: #023f71;
+    color: #d0cfcc;
+    opacity: 0.8;
+    margin-bottom: 2px;
+    margin-top: 37px;
+            border: 7px solid;
+    padding: 7px;
+    font-size: 26px;
+}
 .content-container {
     position: relative;
     min-height: 100vh;

@@ -8,6 +8,7 @@
     margin-right: 10px;
     margin-left: 10px;
     a {
+      cursor: pointer;
       display: inline-block;
       width: 29px;
       height: 33px;
@@ -103,7 +104,7 @@
   text-align: center;
   > ul {
     background: $header-color;
-    border-bottom: 1px solid darken($header-color, 10%);
+    // border-bottom: 1px solid darken($header-color, 10%);
     margin-bottom: 0;
     border-top: 1px solid darken($header-color, 10%);
     > li {
@@ -115,8 +116,8 @@
         text-decoration: none;
         font-size: 20px;
         display: inline-block;
-        border-left: 1px solid darken($header-color, 10%);
-        margin-right: -5px;
+        // border-left: 1px solid darken($header-color, 10%);
+        margin-right: -3px;
         &:hover, &:focus {
           background: darken($branding-color, 10%);
           color: $dark-background-text-color;
@@ -125,7 +126,7 @@
       }
       &:last-of-type {
         > a {
-          border-right: 1px solid darken($header-color, 10%);
+          // border-right: 1px solid darken($header-color, 10%);
         }
       }
     }
@@ -148,4 +149,8 @@
       }
     }
   }
+}
+
+.list-packages {
+  
 }

@@ -18,13 +18,6 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="input3" class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="input3" placeholder="Description"
-      		name="description" value="{{ old('description') }}" />
-    </div>
-  </div>
-  <div class="form-group">
     <label for="input4" class="col-sm-2 control-label">title</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input4" placeholder="Contact us"

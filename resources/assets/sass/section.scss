@@ -1,7 +1,7 @@
 section {
   &#Carousel {
     position: relative;
-    height: 70vh;
+    height: 75vh;
     overflow: hidden;
     margin-bottom: 20px;
     border-bottom: 11px solid $branding-color;
@@ -34,9 +34,30 @@ section {
   }
   &#services {
     height: 90vh;
-    border-bottom: 1px solid;
   }
   &#offers {
+    height: 90vh;
+    border-bottom: 1px solid;
+  }
+  &#vision {
+    position: relative;
+    .background {
+      background-image: url('/images/site/balloons.jpg');
+      height: 100%;
+      opacity: 0.6;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $text-color;
+      z-index: 0;
+    }
+    height: 90vh;
+    border-bottom: 10px solid;
+  }
+  &#packages {
     height: 90vh;
     border-bottom: 1px solid;
   }

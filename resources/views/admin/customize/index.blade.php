@@ -20,8 +20,8 @@
 						{{ ucwords(str_replace('_', ' ', $config->key)) }}
 					</td>
 					<td>
-						@if(strlen($config->value) < 50)
-						<input type="text" name="value" value="{{ $config->value }}" class="form-control" required>
+						@if(!$config->rich)
+							<input type="text" name="value" value="{{ $config->value }}" class="form-control" required>
 						@else
 							<textarea name="value" id="" cols="30" rows="4" class="form-control">{{ $config->value }}</textarea>
 						@endif

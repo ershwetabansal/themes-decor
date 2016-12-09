@@ -123,4 +123,9 @@
 @push('body_scripts')
 <script src="js/diskbrowser/js/disk-browser.js"></script>
 <script src="{{ elixir('js/disk_browser.js') }}"></script>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+(function(){
+    tinymce.init({ selector:'textarea' });
+    })()</script>
 @endpush

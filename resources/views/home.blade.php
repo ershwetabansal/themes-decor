@@ -43,6 +43,61 @@
             </a>
         </div>
     </section>
+    <section id="vision">
+        <div class="background"></div>
+        <div class="content">
+            {!! \App\Configuration::getValue('vision', '') !!}
+        </div>
+
+    </section>
+
+    <section id="packages" style="padding-top: 10vh;">
+
+    <h2 class="text-center" style="margin-bottom: 20vh">Decoration starting from 11000/- only</h2>
+    
+    <div style="width: 84%;margin: 0 auto;text-align: center;position: relative">
+        <table class="table-packages">
+        <tbody>
+            <tr>
+                <td valign="bottom">
+                    <div class="classy">
+                        CLASSY 11000/-
+                    </div>
+                </td>
+                <td>
+                    <div class="ceremonious">
+                        CEREMONIOUS
+                    </div>
+                </td>
+                <td>
+                    <div class="fab">
+                        FAB
+                    </div>
+                </td>
+                <td>
+                    <div class="grand">
+                        GRAND
+                    </div>
+                </td>
+                <td>
+                    <div class="imperial">
+                        IMPERIAL
+                    </div>
+                </td>
+                <td>
+                    <div class="majestic">
+                        MAJESTIC
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <div class="package-title">
+            OUR PACKAGES
+        </div>        
+    </div>
+    </section>
+
     @if(isset($offers) && $offers->count() > 0)
     <section id="offers">
         <ul class="list-inline">
@@ -54,7 +109,8 @@
         </ul>
     </section>
     @endif
-    <section id="products">
+
+    <section>
         @include('app.products.carousel')
     </section>
 </div>

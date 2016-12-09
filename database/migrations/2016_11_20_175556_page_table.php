@@ -18,8 +18,7 @@ class PageTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('title')->nullable();
-            $table->string('content')->nullable();
-            $table->string('description')->nullable();
+            $table->text('content')->nullable();
             $table->integer('page_type_id')->default(1);
             $table->timestamps();
         });

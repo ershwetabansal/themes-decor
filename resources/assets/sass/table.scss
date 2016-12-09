@@ -1,0 +1,66 @@
+$classy-color : #90CAF9;
+$ceremonious-color : #009688;
+$fab-color : #F06292;
+$grand-color : #D32F2F;
+$imperial-color : #3949AB;
+$majestic-color : #FFA000;
+
+@mixin gradient($low, $high)
+{
+	background: -moz-linear-gradient(top, $low 0%, $high 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, $low 0%,$high 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, $low 0%,$high 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.table-packages {
+	td {
+	    color: white;
+	    font-size: 21px;
+	    letter-spacing: 3px;
+	}
+	
+	div {
+		-webkit-transform: rotate(-90deg);
+        background: red;
+        padding: 20px 10px;
+        width: 150px;
+        margin-right: -69px;
+		&.classy {
+			color: black;
+			width: 200px;
+			margin-bottom: 6px; 
+			background: $classy-color;
+			@include gradient($classy-color, lighten($classy-color, 20%));
+		}
+		&.ceremonious {
+			width: 230px;
+			margin-bottom: 0px; 
+			background: $ceremonious-color;
+			@include gradient($ceremonious-color, lighten($ceremonious-color, 20%));
+		}
+		&.fab {
+			width: 250px;
+			margin-bottom: 20px;
+			background: $fab-color;
+			@include gradient($fab-color, lighten($fab-color, 20%));
+		}
+		&.grand {
+			width: 270px;
+			margin-bottom: 40px;
+			background: $grand-color;
+			@include gradient($grand-color, lighten($grand-color, 20%));
+		}
+		&.imperial {
+			width: 290px;
+			margin-bottom: 60px; 
+			background: $imperial-color;
+			@include gradient($imperial-color, lighten($imperial-color, 20%));
+		}
+		&.majestic {
+			width: 310px;
+			margin-bottom: 80px; 
+			background: $majestic-color;
+			@include gradient( $majestic-color, lighten($majestic-color, 20%));
+		}
+	}
+}
+
