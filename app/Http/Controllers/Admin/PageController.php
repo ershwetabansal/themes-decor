@@ -32,12 +32,8 @@ class PageController extends Controller
     {
         Page::create($request->all());
 
-        try {
-            $this->browser->createDirectory($request->input('slug'), $this->path );
-        } catch (DirectoryAlreadyExistsException $e) {
-
-        }
-
+        $this->browser->createDirectory($request->input('slug'), $this->path );
+        
         return redirect('admin');
     }
 

@@ -30,17 +30,20 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function listFilesIn($path)
     {
+        try {
+            if (Directory::exists($this->disk, $path)) {
+                return(collect(File::filesIn($this->disk, $path))
+                    ->filter(function ($file) {
+                        return File::isFileAllowedOnDisk($file, $this->disk);
+                    })
+                    ->map(function ($file) {
+                        return File::metaDataOf($file, $this->disk);
+                    })
+                    ->values()
+                    ->all());
+            }
+        } catch (\Exception $e) {
 
-        if (Directory::exists($this->disk, $path)) {
-            return(collect(File::filesIn($this->disk, $path))
-                ->filter(function ($file) {
-                    return File::isFileAllowedOnDisk($file, $this->disk);
-                })
-                ->map(function ($file) {
-                    return File::metaDataOf($file, $this->disk);
-                })
-                ->values()
-                ->all());
         }
 
         return [];
@@ -54,16 +57,20 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function listAllFilesIn($path)
     {
-        if (Directory::exists($this->disk, $path)) {
-            return(collect(File::allFilesIn($this->disk, $path))
-                ->filter(function ($file) {
-                    return File::isFileAllowedOnDisk($file, $this->disk);
-                })
-                ->map(function ($file) {
-                    return File::metaDataOf($file, $this->disk);
-                })
-                ->values()
-                ->all());
+        try {
+            if (Directory::exists($this->disk, $path)) {
+                return(collect(File::allFilesIn($this->disk, $path))
+                    ->filter(function ($file) {
+                        return File::isFileAllowedOnDisk($file, $this->disk);
+                    })
+                    ->map(function ($file) {
+                        return File::metaDataOf($file, $this->disk);
+                    })
+                    ->values()
+                    ->all());
+            }
+        } catch (\Exception $e) {
+
         }
 
         return [];
@@ -78,13 +85,17 @@ class DiskBrowser implements DiskBrowserContract
     public function listDirectoriesIn($path)
     {
 
-        if (Directory::exists($this->disk, $path)) {
-            return(collect(Directory::directoriesIn($this->disk, $path))
-                ->map(function ($directory) {
-                    return  Directory::metaDataOf($directory, $this->disk);
-                })
-                ->values()
-                ->all());
+        try {
+            if (Directory::exists($this->disk, $path)) {
+                return(collect(Directory::directoriesIn($this->disk, $path))
+                    ->map(function ($directory) {
+                        return  Directory::metaDataOf($directory, $this->disk);
+                    })
+                    ->values()
+                    ->all());
+            }
+        } catch (\Exception $e) {
+
         }
 
         return [];
@@ -100,9 +111,13 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function createDirectory($name, $path)
     {
-        if (Directory::exists($this->disk, $path) && Directory::notExists($name, $this->disk, $path)) {
-            Directory::createDirectory($name, $this->disk, $path );
-            return Directory::metaDataOf(Path::normalize($path) . $name , $this->disk);
+        try {
+            if (Directory::exists($this->disk, $path) && Directory::notExists($name, $this->disk, $path)) {
+                Directory::createDirectory($name, $this->disk, $path );
+                return Directory::metaDataOf(Path::normalize($path) . $name , $this->disk);
+            }
+        } catch (\Exception $e) {
+
         }
 
         return false;
@@ -119,12 +134,17 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function renameDirectory($path, $oldName, $newName)
     {
-        if (Directory::exists($this->disk, $path . $oldName) && Directory::notExists($newName, $this->disk, $path)) {
-            Directory::renameDirectory($oldName, $this->disk, $path, $newName );
-            return Directory::metaDataOf(Path::normalize($path) . $newName , $this->disk);
+
+        try {
+            if (Directory::exists($this->disk, $path . $oldName) && Directory::notExists($newName, $this->disk, $path)) {
+                Directory::renameDirectory($oldName, $this->disk, $path, $newName );
+                return Directory::metaDataOf(Path::normalize($path) . $newName , $this->disk);
+            }
+        } catch (\Exception $e) {
+
         }
 
-        throw new DirectoryAlreadyExistsException();
+        return [];
     }
 
     /**
@@ -136,11 +156,15 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function createFile(UploadedFile $file, $path)
     {
-        $newFileName = File::generateUniqueFileName($file);
+        try {
+            $newFileName = File::generateUniqueFileName($file);
 
-        if (Directory::exists($this->disk, $path)) {
-            File::uploadFile($file, $newFileName, $this->disk, $path);
-            return File::metaDataOf(Path::normalize($path) . $newFileName, $this->disk);
+            if (Directory::exists($this->disk, $path)) {
+                File::uploadFile($file, $newFileName, $this->disk, $path);
+                return File::metaDataOf(Path::normalize($path) . $newFileName, $this->disk);
+            }
+        } catch(\Exception $e) {
+
         }
 
         return [];
@@ -154,10 +178,15 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function search($searchedWord)
     {
-        return [
-            'files' => File::searchDisk($searchedWord, $this->disk),
-            'directories' => Directory::searchDisk($searchedWord, $this->disk),
-        ];
+        try {
+            return [
+                'files' => File::searchDisk($searchedWord, $this->disk),
+                'directories' => Directory::searchDisk($searchedWord, $this->disk),
+            ];
+        } catch (\Exception $e) {
+
+        }
+        return [];
     }
 
     /**
@@ -169,7 +198,12 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function deleteDirectory($directory, $path)
     {
-        return Directory::delete(Path::normalize($path) . $directory, $this->disk);
+        try {
+            return Directory::delete(Path::normalize($path) . $directory, $this->disk);
+        } catch (\Exception $e) {
+
+        }
+        return [];
     }
 
 }

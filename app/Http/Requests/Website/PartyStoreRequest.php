@@ -25,11 +25,11 @@ class PartyStoreRequest extends FormRequest
     {
         return [
             'name'  => 'required',
-            'type'  => 'required|exists:services,name',
+            'type'  => 'required|exists:services,id',
             'other' => 'required_if:type,Other',
-            'address' => '',
-            'email' => '',
-            'phone' => '',
+            'address' => 'min:5',
+            'email' => 'required_without:phone|email',
+            'phone' => 'required_without:email',
             'date' => 'required|date',
 
 

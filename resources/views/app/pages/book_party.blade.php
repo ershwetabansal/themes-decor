@@ -9,7 +9,9 @@
         <div class="content col-md-8 col-md-offset-2">
             <div class="hero text-center">
                                 {!! $page->content !!}
-
+            </div>
+            <div class="text-center">
+                @include('partials.errors')
             </div>
             <form class="form-horizontal" action="{{ url('/party/store') }}" method="POST">
 
@@ -28,14 +30,14 @@
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="input7" placeholder=""
                                name="email" value="{{ old('email') }}"
-                               required />
+                                />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="book_party_type" class="col-sm-5 control-label">What is the occasion?</label>
                     <div class="col-sm-7">
                         <div class="select-wrapper">
-                            <select name="type" id="book_party_type" class="form-control">
+                            <select name="type" id="book_party_type" class="form-control" required>
                                 <option value="" selected disabled>--</option>
                                 @foreach($services as $service)
                                     <option value="{{ $service->id }}"
@@ -56,7 +58,7 @@
                     <label for="input2" class="col-sm-5 control-label">Mobile / Phone number</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="input2" placeholder=""
-                               name="phone" value="{{ old('phone') }}" required/>
+                               name="phone" value="{{ old('phone') }}" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -69,7 +71,7 @@
                 <div class="form-group">
                     <label for="input5" class="col-sm-5 control-label">Date</label>
                     <div class="col-sm-7">
-                        <input id="input5" type="date" name="date" value="" class="form-control" placeholder="" />
+                        <input id="input5" type="date" name="date" value="{{ old('date')}}" class="form-control" placeholder="" required />
                     </div>
                 </div>
                 <div class="form-group">
