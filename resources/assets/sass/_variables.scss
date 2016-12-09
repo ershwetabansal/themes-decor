@@ -34,3 +34,17 @@ $header-color: $header-color;
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+$classy-color : #90CAF9;
+$ceremonious-color : #009688;
+$fab-color : #F06292;
+$grand-color : #D32F2F;
+$imperial-color : #3949AB;
+$majestic-color : #FFA000;
+
+@mixin gradient($low, $high)
+{
+	background: -moz-linear-gradient(top, $low 0%, $high 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, $low 0%,$high 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, $low 0%,$high 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

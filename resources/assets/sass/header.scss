@@ -2,16 +2,26 @@
   padding: 15px;
   padding-bottom: 30px;
   color : $dark-background-text-color;
+
+
   .app-name {
     font-size: 25px;
       color : $dark-background-text-color;
   }
 
   .logo {
-    width: 230px;
-    position: absolute;
-    top: 70px;
-    left: 10px;
+    @media(max-width: 991px) {
+      padding: 22px;
+      width: 78%;
+      margin: 0 auto;
+      display: block;
+    }
+    @media (min-width: 992px) {
+      width: 230px;
+      position: absolute;
+      top: 85px;
+      left: 10px;
+    }
   }
 
   #balloons_1, #balloons_2, #balloons_3, #balloons_4 {
@@ -52,4 +62,12 @@ header {
     background-size: contain;
     background-position-y: 11px;
     background-repeat: repeat; 
+}
+.navbar-static-top {
+  @media(max-width: 991px) {
+    background: #006FA6 !important;
+  }
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background: $dark-background-text-color;
 }

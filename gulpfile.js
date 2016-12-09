@@ -15,10 +15,14 @@ elixir(function (mix) {
     mix.copy('node_modules/disk-browser/dist/js', 'public/js/diskbrowser/js');
     mix.copy('node_modules/disk-browser/dist/partials', 'public/js/diskbrowser/partials');
     mix.copy('node_modules/disk-browser/dist/css', 'public/css/diskbrowser');
+    mix.copy('node_modules/disk-browser/dist/css', 'public/css/diskbrowser');
+    mix.copy('node_modules/disk-browser/dist/css', 'public/css/diskbrowser');
+    mix.copy('resources/assets/third_party', 'public/third_party');
 
     mix.sass('theme/blue.scss')
     .sass('theme/red.scss')
-    .sass('theme/santa.scss');
+    .sass('theme/santa.scss')
+
     mix.scripts(['app.js', 'modal.js', 'cart.js'], 'public/js/app.js');
     mix.scripts(['disk_browser.js'], 'public/js/disk_browser.js');
 

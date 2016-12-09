@@ -36,22 +36,23 @@
   display: table;
   border-spacing: 10px;
   padding-top: 20px;
+  cursor: pointer;
   li {
     position: relative;
-    border: 1px solid transparent;
     display: table-cell;
     overflow: hidden;
     zoom: 1;
     margin: 0 0 12px 12px;
-    padding: 20px 0;
     padding: 40px 0;
+    border: 1px solid lighten($branding-color, 60%);
+    height: 250px;
+    box-shadow: 0px 2px 5px 0px lighten($branding-color, 50%);
     .btn-cart {
       width: 0;
       left: -26px;
     }
     &:hover {
       cursor: pointer;
-      border: 1px solid #d2cfcf;
       -webkit-box-shadow: 1px 1px 3px 0 #f2f2f2;
       -moz-box-shadow: 1px 1px 3px 0 #f2f2f2;
       -ms-box-shadow: 1px 1px 3px 0 #f2f2f2;
@@ -66,7 +67,7 @@
       background-image: -webkit-linear-gradient(bottom,#fafafa 0,#fdfdfd 20%,#fff 60%);
       background-image: linear-gradient(to top,#fafafa 0,#fdfdfd 20%,#fff 60%);
       .btn-cart {
-        width: 90px;
+        width: 100%;
         left: 0;
         transition: width 0.5s;
       }

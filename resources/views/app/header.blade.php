@@ -1,7 +1,18 @@
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    @include('partials.navlist')
+</nav>
 <nav class="navbar-default navbar-static-top">
-    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+    <button type="button" class="navbar-toggle visible-xs visible-sm pull-left" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" style="margin-left: 7px;border-radius: 0;">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <button class="btn-link visible-xs visible-sm pull-right" style="margin-top: 5px; color: white;">
+        <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
+        (<span data-type="cart_items_count">{{ $totalCartItems }}</span>)
+    </button>
         <!-- Right Side Of Navbar -->
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
             <!-- Authentication Links -->
             @if (Auth::guest())
                 <li><a href="{{ url('/login') }}">Login</a></li>
@@ -46,5 +57,4 @@
                 </a>
             </li>
         </ul>
-    </div>
 </nav>

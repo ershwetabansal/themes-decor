@@ -38,9 +38,6 @@
                     <div class="col-sm-7">
                         <div class="select-wrapper">
                             <select name="type" id="book_party_type" class="form-control" required>
-                                @if(old('type'))
-                                <option value="" selected disabled>--</option>
-                                @endif
                                 @foreach($services as $service)
                                     <option value="{{ $service->id }}"
                                     @if(old('type') == $service->id) selected @endif>{{ $service->name }}</option>

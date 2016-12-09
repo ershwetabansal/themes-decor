@@ -6,16 +6,7 @@
     border-bottom: 1px solid $branding-color;
 
 }
-.package-title {
-            background: #023f71;
-    color: #d0cfcc;
-    opacity: 0.8;
-    margin-bottom: 2px;
-    margin-top: 37px;
-            border: 7px solid;
-    padding: 7px;
-    font-size: 26px;
-}
+
 .content-container {
     position: relative;
     min-height: 100vh;
@@ -35,11 +26,13 @@
     }
 
     .content {
-        position: absolute;
-        bottom: 0;
-        z-index: 1000;
-        right: 1px;
-        color: transparent;
+        @media(min-width: 992px) {
+            position: absolute;
+            bottom: 0;
+            z-index: 1000;
+            right: 1px;
+            color: transparent;        
+        }
     }
 
     .overlay {
@@ -48,15 +41,94 @@
         z-index: 900;
         color: black;
         padding: 20px;
-        margin-left: 50px;
+        @media(min-width: 992px) {
+            margin-left: 50px;
+        }
     }
 }
 
 .in-cart {
     position: absolute;
-    top: 81px;
+    top: 0;
     opacity: 0.7;
-    left: 43px;
-    background: lightgrey;
+    left: 0;
+    width: 100%;
+    background: lighten($branding-color, 60%);
     padding: 3px 10px;
+}
+.packages {
+    @media (min-width: 1200px) {
+        display: none;
+    }
+    color: white;
+    font-size: 21px;
+    letter-spacing: 3px;
+    > div {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+div {
+    &.classy {
+        text-transform: uppercase;
+        width: 200px;
+        padding: 20px 10px;
+        color: black;
+        background: $classy-color;
+        @include gradient($classy-color, lighten($classy-color, 20%));
+    }
+    &.ceremonious {
+        text-transform: uppercase;
+        width: 230px;
+        color: white;
+        padding: 20px 10px;         
+        background: $ceremonious-color;
+        @include gradient($ceremonious-color, lighten($ceremonious-color, 20%));
+    }
+    &.fab {
+        text-transform: uppercase;
+        width: 250px;
+        color: white;
+        padding: 20px 10px;                     
+        background: $fab-color;
+        @include gradient($fab-color, lighten($fab-color, 20%));
+    }
+    &.grand {
+        text-transform: uppercase;
+        width: 270px;
+        color: white;
+        padding: 20px 10px;         
+        background: $grand-color;
+        @include gradient($grand-color, lighten($grand-color, 20%));
+    }
+    &.imperial {
+        text-transform: uppercase;
+        width: 290px;
+        color: white;
+        padding: 20px 10px;         
+        background: $imperial-color;
+        @include gradient($imperial-color, lighten($imperial-color, 20%));
+    }
+    &.majestic {
+        text-transform: uppercase;
+        width: 310px;
+        color: white;
+        padding: 20px 10px;         
+        background: $majestic-color;
+        @include gradient( $majestic-color, lighten($majestic-color, 20%));
+    }
+}
+
+.package-title {
+    background: #040404;
+    color: $dark-background-text-color;
+    opacity: 0.8;
+    margin-bottom: 2px;
+    margin-top: 37px;
+    border: 7px solid lighten(#040404, 50%);
+    padding: 7px;
+    font-size: 26px;
+    @media (max-width: 1199px) {
+        display: none;
+    }
 }

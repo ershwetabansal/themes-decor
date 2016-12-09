@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ elixir('css/'. \App\Configuration::theme() . '.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/third_party/jasny-bootstrap.min.css">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -40,7 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="/third_party/jasny-bootstrap.min.js"></script>
     @include('modals.confirmation')
     <script src="{{ elixir('js/app.js') }}"></script>
     @stack('body_scripts')

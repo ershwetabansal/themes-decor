@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\DiskBrowser\DiskBrowser;
 use App\Theme;
 use Illuminate\Http\Request;
+use App\DiskBrowser\DiskBrowser;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class ThemeController extends Controller
 {
@@ -27,10 +28,17 @@ class ThemeController extends Controller
      */
     public function show($slug)
     {
-        $theme = Theme::where('slug', $slug)->firstOrFail();
+        $data = [];
 
-        $images = $this->browser->listFilesIn($this->path . $slug);
+        $data = Cache::rememberForever('themes', function () use($slug) {
+            $data['theme'] = Theme::where('slug', $slug)->firstOrFail();
 
+            $data['images'] = $this->browser->listFilesIn($this->path . $slug);
+            return $data;
+        });
+
+        extract($data);
+        
         return view('app.themes.show', compact('theme', 'images'));
     }
 }

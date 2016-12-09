@@ -42,7 +42,7 @@ section {
     position: relative;
     .background {
       background-image: url('/images/site/balloons.jpg');
-      height: 100%;
+      min-height: 90vh;
       opacity: 0.6;
     }
 

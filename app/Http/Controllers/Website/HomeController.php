@@ -21,7 +21,8 @@ class HomeController extends Controller
         $data = [];
 
         $data = Cache::rememberForever('homepage', function () {
-            $data['images'] = $this->browser->listAllFilesIn('/themes/');
+            $data['images'] = array_merge($this->browser->listAllFilesIn('/themes/'),
+                $this->browser->listAllFilesIn('/services/'));
             $data['products'] = Product::orderBy('created_at', 'desc')->limit(10)->get();
             $data['products']->map(function ($product) {
                $product->images =   $this->browser->listAllFilesIn('/products/' . $product->slug);

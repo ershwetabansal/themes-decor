@@ -1,16 +1,5 @@
-$classy-color : #90CAF9;
-$ceremonious-color : #009688;
-$fab-color : #F06292;
-$grand-color : #D32F2F;
-$imperial-color : #3949AB;
-$majestic-color : #FFA000;
 
-@mixin gradient($low, $high)
-{
-	background: -moz-linear-gradient(top, $low 0%, $high 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, $low 0%,$high 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, $low 0%,$high 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
+
 .table-packages {
 	margin-top: 20vh;
 	@media (max-width: 1199px) {
@@ -53,58 +42,3 @@ $majestic-color : #FFA000;
 	}
 
 }
-.packages {
-	@media (min-width: 1200px) {
-		display: none;
-	}
-	color: white;
-	font-size: 21px;
-    letter-spacing: 3px;
-	> div {
-		margin-bottom: 20px;
-	}
-}
-div {
-		&.classy {
-			width: 200px;
-			padding: 20px 10px;
-    		color: black;
-			background: $classy-color;
-			@include gradient($classy-color, lighten($classy-color, 20%));
-		}
-		&.ceremonious {
-			width: 230px;
-			color: white;
-			padding: 20px 10px;			
-			background: $ceremonious-color;
-			@include gradient($ceremonious-color, lighten($ceremonious-color, 20%));
-		}
-		&.fab {
-			width: 250px;
-			color: white;
-			padding: 20px 10px;						
-			background: $fab-color;
-			@include gradient($fab-color, lighten($fab-color, 20%));
-		}
-		&.grand {
-			width: 270px;
-			color: white;
-			padding: 20px 10px;			
-			background: $grand-color;
-			@include gradient($grand-color, lighten($grand-color, 20%));
-		}
-		&.imperial {
-			width: 290px;
-			color: white;
-			padding: 20px 10px;			
-			background: $imperial-color;
-			@include gradient($imperial-color, lighten($imperial-color, 20%));
-		}
-		&.majestic {
-			width: 310px;
-			color: white;
-			padding: 20px 10px;			
-			background: $majestic-color;
-			@include gradient( $majestic-color, lighten($majestic-color, 20%));
-		}
-	}
