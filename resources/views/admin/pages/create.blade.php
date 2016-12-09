@@ -5,7 +5,7 @@
   <div class="form-group">
     <label for="input1" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input1" placeholder="Contact us"
+      <input type="text" class="form-control" id="input1"
       		name="name" value="{{ old('name') }}" data-action="update_slug" data-update="page_slug"
              required />
     </div>
@@ -13,21 +13,21 @@
   <div class="form-group">
     <label for="input2" class="col-sm-2 control-label">Slug</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input2" placeholder="contact-us"
+      <input type="text" class="form-control" id="input2" 
       		name="slug" value="{{ old('slug') }}" data-type="page_slug" required/>
     </div>
   </div>
   <div class="form-group">
     <label for="input4" class="col-sm-2 control-label">title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input4" placeholder="Contact us"
+      <input type="text" class="form-control" id="input4" 
       		name="title" value="{{ old('title') }}" required/>
     </div>
   </div>
   <div class="form-group">
     <label for="input5" class="col-sm-2 control-label">Content</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input5" placeholder=""
+      <input type="text" class="form-control" id="input5" 
       		name="content" value="{{ old('content') }}" />
     </div>
   </div>
@@ -35,7 +35,7 @@
     <label for="input6" class="col-sm-2 control-label">Page type</label>
     <div class="col-sm-10">
       <select name="page_type_id" id="input6" class="form-control" required>
-        <option value="" disabled selected>--Choose--</option>
+        <option value="" disabled selected>--</option>
         @foreach($pageTypes as $pageType)
           <option value="{{ $pageType->id }}">{{ $pageType->name }}</option>
         @endforeach

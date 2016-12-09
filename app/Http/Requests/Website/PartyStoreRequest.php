@@ -30,9 +30,17 @@ class PartyStoreRequest extends FormRequest
             'address' => 'min:5',
             'email' => 'required_without:phone|email',
             'phone' => 'required_without:email',
-            'date' => 'required|date',
+            'date' => 'required|date|after:today',
 
 
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required_without' => 'Either e-mail address or phone number is required.',
+            'phone.required_without' => 'Either e-mail address or phone number is required.',
         ];
     }
 }

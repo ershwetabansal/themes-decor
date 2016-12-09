@@ -14,6 +14,6 @@ class PartyController extends Controller
 
         // TODO send an e-mail to both the parties
 
-        return view('app.pages.book_party')->with(['message' => 'We will contact you as soon as possible']);
+        return redirect('book-a-party')->with(['message' => 'We will contact you as soon as possible']);
     }
 }

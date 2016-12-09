@@ -29,14 +29,13 @@ section {
     }
   }
   &#admin {
-    height: 80vh;
-    padding-top: 20px;
+    min-height: 80vh;
   }
   &#services {
-    height: 90vh;
+    min-height: 90vh;
   }
   &#offers {
-    height: 90vh;
+    min-height: 90vh;
     border-bottom: 1px solid;
   }
   &#vision {
@@ -54,7 +53,7 @@ section {
       color: $text-color;
       z-index: 0;
     }
-    height: 90vh;
+    min-height: 90vh;
     border-bottom: 10px solid;
   }
   &#packages {
@@ -64,7 +63,7 @@ section {
     border-bottom: 1px solid;
   }
   &#products {
-    height: 90vh;
+    min-height: 90vh;
     border-bottom: 1px solid;
 
     .list-products {

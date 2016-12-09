@@ -6,7 +6,7 @@
   <div class="form-group">
     <label for="input1" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input1" placeholder=""
+      <input type="text" class="form-control" id="input1" 
              name="name" value="{{ old('name', $page->name) }}" data-action="update_slug" data-update="page_slug"
              required />
     </div>
@@ -14,14 +14,14 @@
   <div class="form-group">
     <label for="input2" class="col-sm-2 control-label">Slug</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input2" placeholder=""
+      <input type="text" class="form-control" id="input2" 
              name="slug" value="{{ old('slug', $page->slug) }}" data-type="page_slug" required/>
     </div>
   </div>
   <div class="form-group">
     <label for="input4" class="col-sm-2 control-label">title</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="input4" placeholder=""
+      <input type="text" class="form-control" id="input4" 
              name="title" value="{{ old('title', $page->title) }}" required/>
     </div>
   </div>

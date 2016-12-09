@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-container">
+    <div class="content-container clearfix">
         <h2 class="title  text-center">
             {{ $page->title }}
         </h2>
@@ -38,10 +38,12 @@
                     <div class="col-sm-7">
                         <div class="select-wrapper">
                             <select name="type" id="book_party_type" class="form-control" required>
+                                @if(old('type'))
                                 <option value="" selected disabled>--</option>
+                                @endif
                                 @foreach($services as $service)
                                     <option value="{{ $service->id }}"
-                                    >{{ $service->name }}</option>
+                                    @if(old('type') == $service->id) selected @endif>{{ $service->name }}</option>
                                 @endforeach
                                 <option value="open_other">Other</option>
                             </select>
