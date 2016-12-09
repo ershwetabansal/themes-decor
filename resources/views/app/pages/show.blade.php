@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="title text-center">
-        {{ $page->title }}
-    </h2>
+    
     <div class="content-container content-page text-center">
+    	<h2 class="title">
+	        {{ $page->title }}
+	    </h2>
 
         <div class="content">
             {!! $page->content !!}
