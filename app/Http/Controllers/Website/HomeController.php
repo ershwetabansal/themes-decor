@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Product;
 use App\Service;
+use App\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
@@ -29,12 +30,13 @@ class HomeController extends Controller
             $data['servicesWithImages']->map(function ($service) {
                 $service->images =   $this->browser->listAllFilesIn('/services/' . $service->slug);
             });
+            $data['packages'] = Package::orderBy('created_at', 'asc')->get();
 
             return $data;
         });
 
         extract($data);
         
-        return view('home', compact('images', 'products', 'servicesWithImages'));
+        return view('home', compact('images', 'products', 'servicesWithImages', 'packages'));
     }
 }

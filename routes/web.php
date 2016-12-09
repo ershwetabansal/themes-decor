@@ -33,12 +33,14 @@ Route::group(['prefix' => '/admin/'], function () {
     Route::get('/offer/create', 'Admin\OfferController@create');
     Route::get('/service/create', 'Admin\ServiceController@create');
     Route::get('/page/create', 'Admin\PageController@create');
+    Route::get('/package/create', 'Admin\PackageController@create');
 
     Route::post('/theme/store', 'Admin\ThemeController@store');
     Route::post('/product/store', 'Admin\ProductController@store');
     Route::post('/offer/store', 'Admin\OfferController@store');
     Route::post('/service/store', 'Admin\ServiceController@store');
     Route::post('/page/store', 'Admin\PageController@store');
+    Route::post('/package/store', 'Admin\PackageController@store');
 
     Route::post('/theme/update', 'Admin\ThemeController@update');
     Route::post('/product/update', 'Admin\ProductController@update');
@@ -46,12 +48,14 @@ Route::group(['prefix' => '/admin/'], function () {
     Route::post('/service/update', 'Admin\ServiceController@update');
     Route::post('/page/update', 'Admin\PageController@update');
     Route::post('/configuration/update', 'Admin\ConfigurationController@update');
+    Route::post('/package/update', 'Admin\PackageController@update');
 
     Route::post('/theme/destroy', 'Admin\ThemeController@destroy');
     Route::post('/product/destroy', 'Admin\ProductController@destroy');
     Route::post('/offer/destroy', 'Admin\OfferController@destroy');
     Route::post('/service/destroy', 'Admin\ServiceController@destroy');
     Route::post('/page/destroy', 'Admin\PageController@destroy');
+    Route::post('/package/destroy', 'Admin\PackageController@destroy');
 
 });
 

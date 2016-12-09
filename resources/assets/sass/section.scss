@@ -58,7 +58,9 @@ section {
     border-bottom: 10px solid;
   }
   &#packages {
-    height: 90vh;
+    padding-top: 20px;
+    min-height: 90vh;
+    padding-bottom: 20px;
     border-bottom: 1px solid;
   }
   &#products {

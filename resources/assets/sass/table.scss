@@ -12,55 +12,99 @@ $majestic-color : #FFA000;
 	background: linear-gradient(to bottom, $low 0%,$high 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 .table-packages {
+	margin-top: 20vh;
+	@media (max-width: 1199px) {
+		display: none;
+	}
 	td {
 	    color: white;
 	    font-size: 21px;
 	    letter-spacing: 3px;
 	}
-	
+
 	div {
 		-webkit-transform: rotate(-90deg);
-        background: red;
+		margin-right: -69px;
         padding: 20px 10px;
-        width: 150px;
-        margin-right: -69px;
+    	&.classy {
+    		
+			margin-bottom: 20px;
+		}
+		&.ceremonious {
+			
+			margin-bottom: 34px; 
+		}
+		&.fab {
+			
+			margin-bottom: 44px;
+		}
+		&.grand {
+			
+			margin-bottom: 54px;
+		}
+		&.imperial {
+			
+			margin-bottom: 64px; 
+		}
+		&.majestic {
+			
+			margin-bottom: 74px;
+		}
+	}
+
+}
+.packages {
+	@media (min-width: 1200px) {
+		display: none;
+	}
+	color: white;
+	font-size: 21px;
+    letter-spacing: 3px;
+	> div {
+		margin-bottom: 20px;
+	}
+}
+div {
 		&.classy {
-			color: black;
 			width: 200px;
-			margin-bottom: 6px; 
+			padding: 20px 10px;
+    		color: black;
 			background: $classy-color;
 			@include gradient($classy-color, lighten($classy-color, 20%));
 		}
 		&.ceremonious {
 			width: 230px;
-			margin-bottom: 0px; 
+			color: white;
+			padding: 20px 10px;			
 			background: $ceremonious-color;
 			@include gradient($ceremonious-color, lighten($ceremonious-color, 20%));
 		}
 		&.fab {
 			width: 250px;
-			margin-bottom: 20px;
+			color: white;
+			padding: 20px 10px;						
 			background: $fab-color;
 			@include gradient($fab-color, lighten($fab-color, 20%));
 		}
 		&.grand {
 			width: 270px;
-			margin-bottom: 40px;
+			color: white;
+			padding: 20px 10px;			
 			background: $grand-color;
 			@include gradient($grand-color, lighten($grand-color, 20%));
 		}
 		&.imperial {
 			width: 290px;
-			margin-bottom: 60px; 
+			color: white;
+			padding: 20px 10px;			
 			background: $imperial-color;
 			@include gradient($imperial-color, lighten($imperial-color, 20%));
 		}
 		&.majestic {
 			width: 310px;
-			margin-bottom: 80px; 
+			color: white;
+			padding: 20px 10px;			
 			background: $majestic-color;
 			@include gradient( $majestic-color, lighten($majestic-color, 20%));
 		}
 	}
-}
-

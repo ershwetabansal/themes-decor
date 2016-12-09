@@ -12,6 +12,7 @@
                         <li role="presentation"><a data-toggle="tab" href="#products">Products</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#offers">Offers</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#pages">Pages</a></li>
+                        <li role="presentation"><a data-toggle="tab" href="#packages">Packages</a></li>
                         <li role="presentation"><a data-toggle="tab" href="#customize">Customize content</a></li>
                     </ul>
                 </div>
@@ -52,6 +53,13 @@
                             </a>
                             @include('admin.pages.index')
                         </div>
+                        <div class="tab-pane fade" id="packages">
+                            <a data-toggle="tab" data-target="#packages_create" class="btn btn-default">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add new package
+                            </a>
+                            @include('admin.packages.index')
+                        </div>
                         <div class="tab-pane fade" id="customize">
                             @include('admin.customize.index')
                         </div>
@@ -70,6 +78,10 @@
                         <div class="tab-pane fade" id="pages_create">
                             @include('admin.pages.create')
                             <a data-target="#pages" data-toggle="tab" class="pull-right">Go back</a>
+                        </div>
+                        <div class="tab-pane fade" id="packages_create">
+                            @include('admin.packages.create')
+                            <a data-target="#packages" data-toggle="tab" class="pull-right">Go back</a>
                         </div>
                         <div class="tab-pane fade" id="offers_create">
                             @include('admin.offers.create')
@@ -100,6 +112,13 @@
                             <div class="tab-pane fade" id="pages_update_{{ $page->id }}">
                                 @include('admin.pages.update')
                                 <a data-target="#pages" data-toggle="tab" class="pull-right">Go back</a>
+                            </div>
+                        @endforeach
+
+                        @foreach($packages as $package)
+                            <div class="tab-pane fade" id="package_update_{{ $package->id }}">
+                                @include('admin.packages.update')
+                                <a data-target="#packages" data-toggle="tab" class="pull-right">Go back</a>
                             </div>
                         @endforeach
 

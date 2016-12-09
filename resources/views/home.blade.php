@@ -51,47 +51,31 @@
 
     </section>
 
-    <section id="packages" style="padding-top: 10vh;">
+    <section id="packages" >
 
-    <h2 class="text-center" style="margin-bottom: 20vh">Decoration starting from 11000/- only</h2>
+    <h2 class="text-center">Decoration starting from 11000/- only</h2>
     
     <div style="width: 84%;margin: 0 auto;text-align: center;position: relative">
         <table class="table-packages">
         <tbody>
             <tr>
-                <td valign="bottom">
-                    <div class="classy">
-                        CLASSY 11000/-
-                    </div>
-                </td>
-                <td>
-                    <div class="ceremonious">
-                        CEREMONIOUS
-                    </div>
-                </td>
-                <td>
-                    <div class="fab">
-                        FAB
-                    </div>
-                </td>
-                <td>
-                    <div class="grand">
-                        GRAND
-                    </div>
-                </td>
-                <td>
-                    <div class="imperial">
-                        IMPERIAL
-                    </div>
-                </td>
-                <td>
-                    <div class="majestic">
-                        MAJESTIC
-                    </div>
-                </td>
+                @foreach($packages as $package)
+                    <td valign="bottom" title="{{ $package->title }}" data-toggle="tooltip">
+                        <div class="{{ $package->slug }}">
+                            {{ $package-> name }}
+                        </div>
+                    </td>
+                @endforeach
             </tr>
         </tbody>
     </table>
+        <div class="packages">
+            @foreach($packages as $package)
+                <div class="{{ $package->slug }}">
+                    {{ $package-> name }}
+                </div>
+            @endforeach
+        </div>
         <div class="package-title">
             OUR PACKAGES
         </div>        

@@ -75,3 +75,27 @@ function slugify(text, separator)
     });
 
 })();
+
+(function () {
+    balloonRide($('#balloons_1'), 10000);
+    balloonRide($('#balloons_2'), 6000);
+    balloonRide($('#balloons_3'), 8000);
+    balloonRide($('#balloons_4'), 9000);
+})();
+
+function balloonRide(targetElement, speed)
+{
+    console.log(speed);
+    targetElement.css({top: '500px' });
+    targetElement.animate(
+        {
+            'top': -200
+        }, 
+        { 
+            duration: speed, 
+            complete: function(){
+                balloonRide($(this), speed);
+            }
+        }
+    );    
+}
