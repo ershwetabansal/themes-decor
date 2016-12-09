@@ -7,10 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <button class="btn-link visible-xs visible-sm pull-right" style="margin-top: 5px; color: white;">
+    <a class="visible-xs visible-sm pull-right" style="margin-top: 5px; color: white;" href="/checkout">
         <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
         (<span data-type="cart_items_count">{{ $totalCartItems }}</span>)
-    </button>
+    </a>
         <!-- Right Side Of Navbar -->
         <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
             <!-- Authentication Links -->

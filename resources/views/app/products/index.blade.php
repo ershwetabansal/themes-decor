@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-container">
-        <ul class="list-products">
+        <ul class="text-center list-inline list-products">
             @foreach($products as $product)
                 <li class="text-center">
                     <form method="post" action="{{ url('/cart/store') }}" data-form="cart">

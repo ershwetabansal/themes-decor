@@ -99,3 +99,9 @@ function balloonRide(targetElement, speed)
         }
     );    
 }
+
+(function() {
+    $('[data-type="image-mini"]').click(function () {
+        $('[data-type="'+$(this).data('update')+'"]').attr('src', $(this).attr('src'));
+    });
+})();

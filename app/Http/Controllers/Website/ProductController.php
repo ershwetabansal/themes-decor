@@ -30,23 +30,23 @@ class ProductController extends Controller
     public function index()
     {
         $data = [];
-
         $data = Cache::rememberForever('products', function () {
-            $cartItems = Cart::content();
 
             $data['products'] = Product::paginate();
 
             $data['products']->each(function($product) use ($cartItems)  {
                 $product->images = $this->browser->listFilesIn($this->path . $product->slug);
-                $product->addedToCart = $cartItems->filter(function ($item) use($product) {
-                    return $item->id == $product->id;
-                })->count() > 0;
             });
             return $data;
         });
 
         extract($data);
-
+        $cartItems = Cart::content();
+        $products->each(function($product) use ($cartItems)  {
+                $product->addedToCart = $cartItems->filter(function ($item) use($product) {
+                    return $item->id == $product->id;
+                })->count() > 0;
+            });
         return view('app.products.index', compact('products'));
     }
 
@@ -59,6 +59,10 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $cartItems = Cart::content();
+        $product->addedToCart = $cartItems->filter(function ($item) use($product) {
+                return $item->id == $product->id;
+        })->count() > 0;
         $images = $this->browser->listFilesIn($this->path . $product->slug);
 
         $products = Product::orderBy('created_at', 'desc')->limit(10)->get();
