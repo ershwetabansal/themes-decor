@@ -58,7 +58,7 @@ class ProductController extends Controller
 
         $products = Product::orderBy('created_at', 'desc')->limit(10)->get();
         $products->map(function ($product) {
-            $product->images =   $this->browser->listAllFilesIn('/products/' . $product->slug);
+            $product->images =   $this->browser->listFilesIn('/products/' . $product->slug);
         });
         return view('app.products.show', compact('product', 'images', 'products'));
     }

@@ -85,7 +85,6 @@ function slugify(text, separator)
 
 function balloonRide(targetElement, speed)
 {
-    console.log(speed);
     targetElement.css({top: '500px' });
     targetElement.animate(
         {
@@ -105,3 +104,72 @@ function balloonRide(targetElement, speed)
         $('[data-type="'+$(this).data('update')+'"]').attr('src', $(this).attr('src'));
     });
 })();
+
+(function () {
+    $('[data-toggle="list-carousel"]').each(function () {
+        var carousel = $(this);
+        console.log("hello");
+
+        $('[data-slide="next"]').click(function() {
+            hideFirstInViewPort();
+        });
+
+        $('[data-slide="prev"]').click(function() {
+            showPreviousInViewPort();
+        });
+
+        var listItems = carousel.find('ul').find('li');
+
+        function hideFirstInViewPort() {
+
+            listItems.each(function(index) {
+                if (elementInViewport($(this).get(0))) {
+                    if (listItems.length -1 != index) {
+                        $(this).addClass('hidden'); 
+                        $('[data-slide="prev"]').removeClass('disabled');                       
+                    } else {
+                        $('[data-slide="next"]').addClass('disabled');
+                    }
+                    return false;
+                }
+            });
+        }
+        function showPreviousInViewPort() {
+            var firstInView = false;
+            var lastOne;
+            listItems.each(function(index) {
+                if (elementInViewport($(this).get(0))) {
+                    if (lastOne) {
+                        lastOne.removeClass('hidden');
+                        if (index == 1) {
+                            $('[data-slide="prev"]').addClass('disabled');
+                        }
+                        $('[data-slide="next"]').removeClass('disabled');       
+                    }
+                    return false;
+                } 
+                lastOne = $(this);
+            });
+        }
+    });
+})();
+
+function elementInViewport(el) {
+  var top = el.offsetTop;
+  var left = el.offsetLeft;
+  var width = el.offsetWidth;
+  var height = el.offsetHeight;
+
+  while(el.offsetParent) {
+    el = el.offsetParent;
+    top += el.offsetTop;
+    left += el.offsetLeft;
+  }
+
+  return (
+    top < (window.pageYOffset + window.innerHeight) &&
+    left < (window.pageXOffset + window.innerWidth) &&
+    (top + height) > window.pageYOffset &&
+    (left + width) > window.pageXOffset
+  );
+}

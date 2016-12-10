@@ -2,6 +2,7 @@
 
 namespace App\DiskBrowser;
 
+use Illuminate\Support\Facades\Cache;
 use App\DiskBrowser\Contracts\DiskBrowserContract;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Exceptions\Filesystem\DirectoryAlreadyExistsException;
@@ -30,9 +31,12 @@ class DiskBrowser implements DiskBrowserContract
      */
     public function listFilesIn($path)
     {
+        $data = [];
         try {
-            if (Directory::exists($this->disk, $path)) {
-                return(collect(File::filesIn($this->disk, $path))
+            $data = Cache::rememberForever('cache_files_' . str_replace('/', '_', $path), function () use($path) {
+                $data['files'] = [];
+                if (Directory::exists($this->disk, $path)) {
+                    $data['files'] = (collect(File::filesIn($this->disk, $path))
                     ->filter(function ($file) {
                         return File::isFileAllowedOnDisk($file, $this->disk);
                     })
@@ -41,7 +45,14 @@ class DiskBrowser implements DiskBrowserContract
                     })
                     ->values()
                     ->all());
-            }
+                }
+                return $data;
+            });
+
+            extract($data);
+
+            return $files;
+
         } catch (\Exception $e) {
 
         }

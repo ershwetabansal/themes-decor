@@ -46,6 +46,16 @@
             
         </div>
 
-        @include('app.products.carousel')
+        <section id="products" data-toggle="list-carousel">
+            <a class="control left disabled" role="button" data-slide="prev">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            @include('app.products.list')    
+            <a class="control right" role="button" data-slide="next">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+            </a>
+    </section>
     </div>
 @endsection

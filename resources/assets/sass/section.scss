@@ -63,11 +63,31 @@ section {
     border-bottom: 1px solid;
   }
   &#products {
-    min-height: 90vh;
-    border-bottom: 1px solid;
-
+    position: relative;
+    @media(max-width: 767px) {
+      display: none;
+    }
     .list-products {
-      margin-top: 30vh;
+      display: inline-block;
+      height: 283px;
+      padding: 15px 6%;
+      overflow: hidden;
+      text-align: center;
+    }
+    .control {
+      display: inline-block;
+      position: absolute;
+      top: 41%;
+      font-size: 20px;
+      &.left {
+        left: 2%;
+      }
+      &.right {
+        right: 2%;
+      }
+      &.disabled {
+        opacity: 0.5;
+      }
     }
   }
 }
