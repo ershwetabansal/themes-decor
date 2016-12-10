@@ -74,20 +74,6 @@ section {
       overflow: hidden;
       text-align: center;
     }
-    .control {
-      display: inline-block;
-      position: absolute;
-      top: 41%;
-      font-size: 20px;
-      &.left {
-        left: 2%;
-      }
-      &.right {
-        right: 2%;
-      }
-      &.disabled {
-        opacity: 0.5;
-      }
-    }
+    
   }
 }

@@ -24,4 +24,23 @@
 
 #service-carousel {
   margin-top: 30vh;
+  position: relative;
+}
+
+[data-toggle="list-carousel"] {
+  .control {
+      display: inline-block;
+      position: absolute;
+      top: 41%;
+      font-size: 20px;
+      &.left {
+        left: 2%;
+      }
+      &.right {
+        right: 2%;
+      }
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
 }

@@ -8,8 +8,10 @@
                     <span class="text-discount">{{ $product->discount }}</span>
                 @endif
                 @if(sizeof($product->images) > 0 && $image = $product->images[0])
-                    <img src="{{ $image['path'] . $image['name'] }}"
+                    <a href="/product/{{ $product->slug }}">
+                        <img src="{{ $image['path'] . $image['name'] }}"
                          class="product" alt="{{ $product->name }}"/>
+                    </a>
                 @endif
                 <h2 class="text-truncate">
                     <a href="/product/{{ $product->slug }}">
