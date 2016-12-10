@@ -6,7 +6,6 @@ use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
@@ -29,24 +28,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = [];
-        $data = Cache::rememberForever('products', function () {
+        $cartItems = Cart::content();
 
-            $data['products'] = Product::paginate();
-
-            $data['products']->each(function($product) use ($cartItems)  {
-                $product->images = $this->browser->listFilesIn($this->path . $product->slug);
-            });
-            return $data;
+        $products = Product::paginate();
+        $products->each(function($product) use ($cartItems) {
+            $product->images = $this->browser->listFilesIn($this->path . $product->slug);
+            $product->addedToCart = $cartItems->filter(function ($item) use($product) {
+                return $item->id == $product->id;
+            })->count() > 0;
         });
 
-        extract($data);
-        $cartItems = Cart::content();
-        $products->each(function($product) use ($cartItems)  {
-                $product->addedToCart = $cartItems->filter(function ($item) use($product) {
-                    return $item->id == $product->id;
-                })->count() > 0;
-            });
         return view('app.products.index', compact('products'));
     }
 
