@@ -15,10 +15,12 @@
         /* Alerts the results */
         posting.done(function( data ) {
             console.log(data);
-            $form.find('[data-type="success"]').removeClass('hidden');
+            $form.find('.in-cart').removeClass('in-cart-hidden');
             $form.find('[data-type="loading"]').addClass('hidden');
             $form.find('.fa-cart-plus').removeClass('hidden');
             $('[data-type="cart_items_count"]').text(data.count);
+            $('[data-type="checkout"]').removeClass('hidden');
+            $form.find('.btn-cart').addClass('hidden');
         }, function () {
             $form.find('.fa-cart-plus').removeClass('hidden');
             $form.find('[data-type="loading"]').addClass('hidden');

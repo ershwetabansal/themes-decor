@@ -2,6 +2,9 @@
     @include('partials.navlist')
 </nav>
 <nav class="navbar-default navbar-static-top">
+    @if(!isset($checkout))
+    <a href="/checkout" class="btn-embossed {{ ($totalCartItems > 0)? '' : 'hidden'}}" data-type="checkout">Proceed to checkout</a>
+    @endif
     <button type="button" class="navbar-toggle visible-xs visible-sm pull-left" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" style="margin-left: 7px;border-radius: 0;">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'checkout'  => true
+])
 
 @section('content')
     <div class="content-container">
@@ -8,7 +10,7 @@
 
             </div>
             <div class="col-md-4 text-right">
-                <a class="btn btn-primary" >
+                <a class="btn btn-primary">
                     Proceed to checkout
                 </a>
                 <a class="btn btn-info" href="/shop">

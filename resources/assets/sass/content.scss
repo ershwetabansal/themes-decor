@@ -10,7 +10,7 @@
 .content-container {
     position: relative;
     min-height: 100vh;
-    background: white;
+    background: #f5f3f3;
     padding: 0 2em;
     padding-top: 3em;
 }
@@ -49,12 +49,21 @@
 
 .in-cart {
     position: absolute;
-    top: 0;
+    bottom: 5%;
     opacity: 0.7;
     left: 0;
     width: 100%;
-    background: lighten($branding-color, 60%);
+    background: #d1dee4;
     padding: 3px 10px;
+    color: white;
+    opacity: 1;
+    transition: all 0.2s;
+
+    &.in-cart-hidden {
+        bottom: -5%;
+        opacity: 0;
+        transition: all 0.5s;
+    }
 }
 .packages {
     @media (min-width: 1200px) {
