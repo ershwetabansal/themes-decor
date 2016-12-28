@@ -151,11 +151,11 @@
 .list-images-vertical {
   > li {
     margin-bottom: 5px;
+    cursor: pointer;
   }
   img {
     width: 90%;
-    padding: 2px;
-    box-shadow: 0 1px 4px 0px lighten($branding-color, 20%);
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1px 0;
   }
 }
 

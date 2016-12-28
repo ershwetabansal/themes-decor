@@ -6,7 +6,7 @@
                 <input type="hidden" name="id" value="{{ $product->id }}">
                 <a  href="/product/{{ $product->slug }}">
                     @if($product->discount)
-                        <span class="text-discount">{{ $product->discount }}</span>
+                        <span class="discount">{{ $product->discount }}</span>
                     @endif
                     @if(sizeof($product->images) > 0 && $image = $product->images[0])
                             <img src="{{ $image['path'] . $image['name'] }}"

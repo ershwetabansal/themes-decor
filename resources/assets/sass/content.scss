@@ -146,3 +146,21 @@ div {
     font-size: 1.3em;
     margin-bottom: 2em;
 }
+
+.discount {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    &:after {
+        content: '';
+        height: 0;
+        width: 0;
+        border-top: 10px solid yellow;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid yellow;
+        border-right: 10px solid yellow;
+        margin: 0 auto;
+        transition: all 0.5s;
+    }
+}
