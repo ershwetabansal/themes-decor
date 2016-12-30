@@ -142,25 +142,29 @@ div {
     }
 }
 
-.price {
-    font-size: 1.3em;
-    margin-bottom: 2em;
-}
 
 .discount {
     position: absolute;
     z-index: 1;
     top: 0;
-    left: 0;
+    left: 9px;
+    > span {
+        display: inline-block;
+        padding: 8px 2px;
+    }
     &:after {
+        position: absolute;
+        left: 0;
         content: '';
         height: 0;
         width: 0;
-        border-top: 10px solid yellow;
-        border-bottom: 10px solid transparent;
-        border-left: 10px solid yellow;
-        border-right: 10px solid yellow;
+        opacity: 0.7;
+        border-top: 40px solid yellow;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid yellow;
+        border-right: 15px solid yellow;
         margin: 0 auto;
+        -webkit-transition: all 0.5s;
         transition: all 0.5s;
     }
 }

@@ -18,6 +18,20 @@
                 </a>
             </div>
         </div>
+        <div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
             <tr>
